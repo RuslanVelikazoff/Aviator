@@ -1,0 +1,16 @@
+namespace Constants
+{
+    public class DATA
+    {
+        public const string COIN = "COIN"; //int
+
+        public const string LEVEL = "LEVEL"; //int
+        public const string EXP = "EXP"; //int
+
+        public const string RECORD_WINTER = "RECORD_WINTER"; //int
+        public const string RECORD_VOLCANO = "RECORD_VOLCANO"; //int
+        public const string RECORD_FOREST = "RECORD_FOREST"; //int
+        public const string RECORD_CITY = "RECORD_CITY"; //int
+        public const string RECORD_SPACE = "RECORD_SPACE"; //int
+    }
+}
