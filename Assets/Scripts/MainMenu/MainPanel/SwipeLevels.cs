@@ -24,6 +24,9 @@ public class SwipeLevels : MonoBehaviour
     [SerializeField]
     private Text[] recordTexts;
 
+    [SerializeField]
+    private StartData data;
+
     private void Start()
     {
         LevelSprite();
@@ -83,7 +86,7 @@ public class SwipeLevels : MonoBehaviour
         recordTexts[0].text = "Your record: " + "\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_WINTER).ToString();
         lockLevelImages[0].SetActive(false);
 
-        if (PlayerPrefs.GetInt(Constants.DATA.LEVEL) >= 10)
+        if (data._mapsBuy[1])
         {
             unlockLevelImages[1].SetActive(true);
             recordTexts[1].text = "Your record: " +"\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_VOLCANO).ToString();
@@ -95,7 +98,7 @@ public class SwipeLevels : MonoBehaviour
             lockLevelImages[1].SetActive(true);
         }
 
-        if (PlayerPrefs.GetInt(Constants.DATA.LEVEL) >= 20)
+        if (data._mapsBuy[2])
         {
             unlockLevelImages[2].SetActive(true);
             recordTexts[2].text = "Your record: " + "\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_FOREST).ToString();
@@ -107,7 +110,7 @@ public class SwipeLevels : MonoBehaviour
             lockLevelImages[2].SetActive(true);
         }
 
-        if (PlayerPrefs.GetInt(Constants.DATA.LEVEL) >= 30)
+        if (data._mapsBuy[3])
         {
             unlockLevelImages[3].SetActive(true);
             recordTexts[3].text = "Your record: " + "\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_CITY).ToString();
@@ -119,7 +122,7 @@ public class SwipeLevels : MonoBehaviour
             lockLevelImages[3].SetActive(true);
         }
 
-        if (PlayerPrefs.GetInt(Constants.DATA.LEVEL) >= 40)
+        if (data._mapsBuy[4])
         {
             unlockLevelImages[4].SetActive(true);
             recordTexts[4].text = "Your record: " + "\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_SPACE).ToString();
@@ -158,7 +161,7 @@ public class SwipeLevels : MonoBehaviour
         {
             playButtons[index].SetActive(true);
 
-            if (PlayerPrefs.GetInt(Constants.DATA.LEVEL) >= 10)
+            if (data._mapsBuy[1])
             {
                 playButtons[index].GetComponent<Image>().sprite = unlockSprite;
                 buttonTexts[index].text = "PLAY";
@@ -174,7 +177,7 @@ public class SwipeLevels : MonoBehaviour
         {
             playButtons[index].SetActive(true);
 
-            if (PlayerPrefs.GetInt(Constants.DATA.LEVEL) >= 20)
+            if (data._mapsBuy[2])
             {
                 playButtons[index].GetComponent<Image>().sprite = unlockSprite;
                 buttonTexts[index].text = "PLAY";
@@ -190,7 +193,7 @@ public class SwipeLevels : MonoBehaviour
         {
             playButtons[index].SetActive(true);
 
-            if (PlayerPrefs.GetInt(Constants.DATA.LEVEL) >= 30)
+            if (data._mapsBuy[3])
             {
                 playButtons[index].GetComponent<Image>().sprite = unlockSprite;
                 buttonTexts[index].text = "PLAY";
@@ -206,7 +209,7 @@ public class SwipeLevels : MonoBehaviour
         {
             playButtons[index].SetActive(true);
 
-            if (PlayerPrefs.GetInt(Constants.DATA.LEVEL) >= 40)
+            if (data._mapsBuy[4])
             {
                 playButtons[index].GetComponent<Image>().sprite = unlockSprite;
                 buttonTexts[index].text = "PLAY";

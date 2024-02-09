@@ -20,6 +20,9 @@ public class MainPanelManager : MonoBehaviour
     [SerializeField]
     private GameObject shopPanel;
 
+    [SerializeField]
+    private StartData data;
+
     private void OnEnable()
     {
         coinText.text = PlayerPrefs.GetInt(Constants.DATA.COIN).ToString();
@@ -47,7 +50,14 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[0].onClick.RemoveAllListeners();
             levelButtons[0].onClick.AddListener(() =>
             {
-                Debug.Log("Winter level");
+                if (data._mapsBuy[0])
+                {
+                    Debug.Log("Winter level");
+                }
+                else
+                {
+                    Debug.Log("Volcano level is locked");
+                }
             });
         }
 
@@ -56,7 +66,7 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[1].onClick.RemoveAllListeners();
             levelButtons[1].onClick.AddListener(() =>
             {
-                if (PlayerPrefs.GetInt(Constants.DATA.LEVEL) >= 10)
+                if (data._mapsBuy[1])
                 {
                     Debug.Log("Volcano level");
                 }
@@ -72,7 +82,7 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[2].onClick.RemoveAllListeners();
             levelButtons[2].onClick.AddListener(() =>
             {
-                if (PlayerPrefs.GetInt(Constants.DATA.LEVEL) >= 20)
+                if (data._mapsBuy[2])
                 {
                     Debug.Log("Forest level");
                 }
@@ -88,7 +98,7 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[3].onClick.RemoveAllListeners();
             levelButtons[3].onClick.AddListener(() =>
             {
-                if (PlayerPrefs.GetInt(Constants.DATA.LEVEL) >= 30)
+                if (data._mapsOpen[3])
                 {
                     Debug.Log("City level");
                 }
@@ -104,7 +114,7 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[4].onClick.RemoveAllListeners();
             levelButtons[4].onClick.AddListener(() =>
             {
-                if (PlayerPrefs.GetInt(Constants.DATA.LEVEL) >= 40)
+                if (data._mapsOpen[4])
                 {
                     Debug.Log("Space level");
                 }
