@@ -155,6 +155,10 @@ public class AirplanesShopManager : MonoBehaviour
             buyButton.GetComponent<Image>().sprite = lockSprite;
             buyButtonText.text = "UNLOCK ON LVL " + level;
         }
+        else
+        {
+            Debug.Log("Bug");
+        }
     }
 
     private void SetSprites()
