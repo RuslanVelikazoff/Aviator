@@ -12,5 +12,7 @@ namespace Constants
         public const string RECORD_FOREST = "RECORD_FOREST"; //int
         public const string RECORD_CITY = "RECORD_CITY"; //int
         public const string RECORD_SPACE = "RECORD_SPACE"; //int
+
+        public const string SELECTED_AIRPLANES = "SELECTED_AIRPLANES"; //int
     }
 }
