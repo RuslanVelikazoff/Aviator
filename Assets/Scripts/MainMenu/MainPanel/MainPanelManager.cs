@@ -19,6 +19,8 @@ public class MainPanelManager : MonoBehaviour
     private GameObject mainPanel;
     [SerializeField]
     private GameObject shopPanel;
+    [SerializeField]
+    private GameObject gamemodePanel;
 
     [SerializeField]
     private StartData data;
@@ -36,6 +38,7 @@ public class MainPanelManager : MonoBehaviour
     {
         mainPanel.SetActive(true);
         shopPanel.SetActive(false);
+        gamemodePanel.SetActive(false);
 
         ButtonClickAction();
     }
@@ -52,7 +55,8 @@ public class MainPanelManager : MonoBehaviour
             {
                 if (data._mapsBuy[0])
                 {
-                    Debug.Log("Winter level");
+                    gamemodePanel.SetActive(true);
+                    PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 0);
                 }
                 else
                 {
@@ -68,7 +72,8 @@ public class MainPanelManager : MonoBehaviour
             {
                 if (data._mapsBuy[1])
                 {
-                    Debug.Log("Volcano level");
+                    gamemodePanel.SetActive(true);
+                    PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 1);
                 }
                 else
                 {
@@ -84,7 +89,8 @@ public class MainPanelManager : MonoBehaviour
             {
                 if (data._mapsBuy[2])
                 {
-                    Debug.Log("Forest level");
+                    gamemodePanel.SetActive(true);
+                    PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 2);
                 }
                 else
                 {
@@ -100,7 +106,8 @@ public class MainPanelManager : MonoBehaviour
             {
                 if (data._mapsOpen[3])
                 {
-                    Debug.Log("City level");
+                    gamemodePanel.SetActive(true);
+                    PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 3);
                 }
                 else
                 {
@@ -116,7 +123,8 @@ public class MainPanelManager : MonoBehaviour
             {
                 if (data._mapsOpen[4])
                 {
-                    Debug.Log("Space level");
+                    gamemodePanel.SetActive(true);
+                    PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 4);
                 }
                 else
                 {

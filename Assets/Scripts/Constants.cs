@@ -14,5 +14,7 @@ namespace Constants
         public const string RECORD_SPACE = "RECORD_SPACE"; //int
 
         public const string SELECTED_AIRPLANES = "SELECTED_AIRPLANES"; //int
+        public const string SELECTED_LEVEL = "SELECTED_LEVEL"; //int
+        public const string SELECTED_GAMEMODE = "SELECTED_GAMEMODE"; //int
     }
 }
