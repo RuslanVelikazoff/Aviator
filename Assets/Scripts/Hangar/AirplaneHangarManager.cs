@@ -134,6 +134,7 @@ public class AirplaneHangarManager : MonoBehaviour
                 //TODO: добавить запуск уровня
                 if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 0) //Winter
                 {
+                    //TODO: тут прописать проверку на игровой мод
                     Debug.Log("Airplanes index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES));
                     Debug.Log("Map index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL));
                     Debug.Log("Gamemode index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE));
