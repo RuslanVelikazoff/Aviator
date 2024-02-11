@@ -102,6 +102,7 @@ MonoBehaviour:
   lifes: 2
   upForce: 4
   bulletPrefab: {fileID: 5825540591158585490, guid: c6433877d82f4d84ebe6c94b9a894ea0, type: 3}
+  rigidbody: {fileID: 0}
 --- !u!50 &7341232428182145820
 Rigidbody2D:
   serializedVersion: 4
@@ -130,7 +131,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9086604319535560680}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

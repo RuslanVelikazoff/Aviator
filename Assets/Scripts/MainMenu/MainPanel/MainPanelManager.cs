@@ -63,7 +63,7 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[0].onClick.RemoveAllListeners();
             levelButtons[0].onClick.AddListener(() =>
             {
-                if (data._mapsBuy[0])
+                if (data._mapsBuy[0] && data._mapsOpen[0])
                 {
                     gamemodePanel.SetActive(true);
                     PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 0);
@@ -80,7 +80,7 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[1].onClick.RemoveAllListeners();
             levelButtons[1].onClick.AddListener(() =>
             {
-                if (data._mapsBuy[1])
+                if (data._mapsBuy[1] && data._mapsOpen[1])
                 {
                     gamemodePanel.SetActive(true);
                     PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 1);
@@ -97,7 +97,7 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[2].onClick.RemoveAllListeners();
             levelButtons[2].onClick.AddListener(() =>
             {
-                if (data._mapsBuy[2])
+                if (data._mapsBuy[2] && data._mapsOpen[2])
                 {
                     gamemodePanel.SetActive(true);
                     PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 2);
@@ -114,7 +114,7 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[3].onClick.RemoveAllListeners();
             levelButtons[3].onClick.AddListener(() =>
             {
-                if (data._mapsOpen[3])
+                if (data._mapsBuy[3] && data._mapsOpen[3])
                 {
                     gamemodePanel.SetActive(true);
                     PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 3);
@@ -131,7 +131,7 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[4].onClick.RemoveAllListeners();
             levelButtons[4].onClick.AddListener(() =>
             {
-                if (data._mapsOpen[4])
+                if (data._mapsBuy[4] && data._mapsOpen[4])
                 {
                     gamemodePanel.SetActive(true);
                     PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 4);

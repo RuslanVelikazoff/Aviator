@@ -161,10 +161,15 @@ public class SwipeLevels : MonoBehaviour
         {
             playButtons[index].SetActive(true);
 
-            if (data._mapsBuy[1])
+            if (data._mapsBuy[1] && data._mapsOpen[1])
             {
                 playButtons[index].GetComponent<Image>().sprite = unlockSprite;
                 buttonTexts[index].text = "PLAY";
+            }
+            else if (!data._mapsBuy[1] && data._mapsOpen[1])
+            {
+                playButtons[index].GetComponent<Image>().sprite = lockSprite;
+                buttonTexts[index].text = "THE LEVEL IS NOT PURCHASED";
             }
             else
             {
@@ -182,6 +187,11 @@ public class SwipeLevels : MonoBehaviour
                 playButtons[index].GetComponent<Image>().sprite = unlockSprite;
                 buttonTexts[index].text = "PLAY";
             }
+            else if (!data._mapsBuy[2] && data._mapsOpen[2])
+            {
+                playButtons[index].GetComponent<Image>().sprite = lockSprite;
+                buttonTexts[index].text = "THE LEVEL IS NOT PURCHASED";
+            }
             else
             {
                 playButtons[index].GetComponent<Image>().sprite = lockSprite;
@@ -198,6 +208,11 @@ public class SwipeLevels : MonoBehaviour
                 playButtons[index].GetComponent<Image>().sprite = unlockSprite;
                 buttonTexts[index].text = "PLAY";
             }
+            else if (!data._mapsBuy[3] && data._mapsOpen[3])
+            {
+                playButtons[index].GetComponent<Image>().sprite = lockSprite;
+                buttonTexts[index].text = "THE LEVEL IS NOT PURCHASED";
+            }
             else
             {
                 playButtons[index].GetComponent<Image>().sprite = lockSprite;
@@ -213,6 +228,11 @@ public class SwipeLevels : MonoBehaviour
             {
                 playButtons[index].GetComponent<Image>().sprite = unlockSprite;
                 buttonTexts[index].text = "PLAY";
+            }
+            else if (!data._mapsBuy[4] && data._mapsOpen[4])
+            {
+                playButtons[index].GetComponent<Image>().sprite = lockSprite;
+                buttonTexts[index].text = "THE LEVEL IS NOT PURCHASED";
             }
             else
             {

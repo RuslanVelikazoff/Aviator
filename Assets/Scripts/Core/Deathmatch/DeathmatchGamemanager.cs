@@ -14,6 +14,7 @@ public class DeathmatchGamemanager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         player = FindObjectOfType<Player>();
     }
 

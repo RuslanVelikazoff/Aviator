@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     
     [SerializeField]
     private float upForce = 4;
+    public bool fly = false;
 
     [SerializeField] 
     private GameObject bulletPrefab;
@@ -25,18 +26,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (fly)
         {
-            Jump();
-        }
-
-        if (Input.GetMouseButtonUp(1))
-        {
-            Fire();
+            Fly();
         }
     }
 
-    public void Jump()
+    public void Fly()
     {
         rigidbody.velocity = transform.up * upForce;
     }

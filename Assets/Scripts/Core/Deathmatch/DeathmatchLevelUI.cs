@@ -59,6 +59,15 @@ public class DeathmatchLevelUI : MonoBehaviour
         }
     }
 
+    public void PlayerStartFly()
+    {
+        player.fly = true;
+    }
+    public void PlayerStopFly()
+    {
+        player.fly = false;
+    }
+
     private void PauseGame()
     {
         Time.timeScale = 0;
