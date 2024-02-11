@@ -15,7 +15,7 @@ public class CameraScaller : MonoBehaviour
 
     public void Initialize()
     {
-        componentCamera = GetComponent<Camera>();
+        //componentCamera = GetComponent<Camera>();
         initialSize = componentCamera.orthographicSize;
 
         targetAspect = DefaultResolution.x / DefaultResolution.y;

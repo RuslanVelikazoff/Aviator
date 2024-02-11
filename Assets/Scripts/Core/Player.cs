@@ -13,9 +13,12 @@ public class Player : MonoBehaviour
     
     private Rigidbody2D rigidbody;
 
+    private DeathmatchGamemanager gamemanager;
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        gamemanager = FindObjectOfType<DeathmatchGamemanager>();
     }
 
     private void Update()
@@ -45,17 +48,12 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            lifes -= 1;
-
-            if (lifes <= 0)
-            {
-                Debug.Log("GameOver");
-            }
+            gamemanager.DamagePlayer();
         };
 
         if (other.gameObject.CompareTag("Coin"))
         {
-            //TODO: добавить монетки
+            gamemanager.CollectedCoin(other.gameObject.GetComponent<Coin>().amount);
             Destroy(other.gameObject);
         }
     }

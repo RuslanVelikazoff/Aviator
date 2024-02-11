@@ -9,6 +9,12 @@ public class DeathmatchLevelUI : MonoBehaviour
     [SerializeField] 
     private GameObject pausePanel;
 
+    [SerializeField]
+    private GameObject losePanel;
+
+    [SerializeField] 
+    private Button fireButton;
+
     [SerializeField] 
     private GameObject[] hearts;
 
@@ -19,12 +25,15 @@ public class DeathmatchLevelUI : MonoBehaviour
     private Text coinText;
 
     private Player player;
+    private DeathmatchGamemanager gamemanager;
 
-    private void Awake()
+    private void Start()
     {
-        //player = FindObjectOfType<Player>();
+        player = FindObjectOfType<Player>();
+        gamemanager = FindObjectOfType<DeathmatchGamemanager>();
         
-        //SetHeartAmount();
+        SetHeartAmount();
+        SetCoinAmount(gamemanager.coins);
         
         ButtonClickAction();
     }
@@ -36,10 +45,30 @@ public class DeathmatchLevelUI : MonoBehaviour
             pauseButton.onClick.RemoveAllListeners();
             pauseButton.onClick.AddListener(() =>
             {
-                Time.timeScale = 0;
-                pausePanel.SetActive(true);
+                PauseGame();
             });
         }
+
+        if (fireButton != null)
+        {
+            fireButton.onClick.RemoveAllListeners();
+            fireButton.onClick.AddListener(() =>
+            {
+                player.Fire();
+            });
+        }
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+        pausePanel.SetActive(true);
+    }
+
+    public void LoseGame()
+    {
+        Time.timeScale = 0;
+        losePanel.SetActive(true);
     }
 
     public void SetHeartAmount()
@@ -55,5 +84,15 @@ public class DeathmatchLevelUI : MonoBehaviour
                 hearts[i].SetActive(false);
             }
         }
+    }
+
+    public void SetCoinAmount(int coin)
+    {
+        coinText.text = coin.ToString();
+    }
+
+    public void SetPointsAmount(int points)
+    {
+        scoreText.text = points.ToString();
     }
 }
