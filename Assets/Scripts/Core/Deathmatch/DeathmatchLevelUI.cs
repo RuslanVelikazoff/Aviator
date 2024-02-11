@@ -71,6 +71,12 @@ public class DeathmatchLevelUI : MonoBehaviour
         losePanel.SetActive(true);
     }
 
+    public void ContinueGame()
+    {
+        losePanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
     public void SetHeartAmount()
     {
         for (int i = 0; i < hearts.Length; i++)

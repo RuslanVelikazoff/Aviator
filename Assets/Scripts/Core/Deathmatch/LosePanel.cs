@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,7 +33,7 @@ public class LosePanel : MonoBehaviour
             continueButton.onClick.RemoveAllListeners();
             continueButton.onClick.AddListener(() =>
             {
-                //TODO: add method on gamemanager
+                gamemanager.ContinueGame();
                 Debug.Log("Continue");
             });
         }
@@ -44,7 +43,7 @@ public class LosePanel : MonoBehaviour
             exitButton.onClick.RemoveAllListeners();
             exitButton.onClick.AddListener(() =>
             {
-                //TODO: add method on gamemanager
+                gamemanager.ExitGame();
                 Debug.Log("Exit");
             });
         }
@@ -54,6 +53,7 @@ public class LosePanel : MonoBehaviour
             restartButton.onClick.RemoveAllListeners();
             restartButton.onClick.AddListener(() =>
             {
+                gamemanager.RestartGame();
                 Debug.Log("Restart");
             });
         }
@@ -62,7 +62,8 @@ public class LosePanel : MonoBehaviour
     private void SetTexts()
     {
         coinText.text = "+" + gamemanager.coins;
-        pointText.text = gamemanager.points.ToString();
+        int points = (int)gamemanager.points;
+        pointText.text = points.ToString();
 
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 0)
         {

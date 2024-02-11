@@ -4,6 +4,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int lifes;
+    private int lifesAmount;
     
     [SerializeField]
     private float upForce = 4;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        lifesAmount = lifes;
         rigidbody = GetComponent<Rigidbody2D>();
         gamemanager = FindObjectOfType<DeathmatchGamemanager>();
     }
@@ -43,7 +45,12 @@ public class Player : MonoBehaviour
     {
         Instantiate(bulletPrefab, transform.position, Quaternion.identity);
     }
-    
+
+    public void RefilLifes()
+    {
+        lifes = lifesAmount;
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Obstacle"))

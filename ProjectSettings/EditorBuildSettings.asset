@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenuOnWebview.unity
     guid: 9adb0b0da35784a57a27bff85c3d9c45
+  - enabled: 1
+    path: Assets/Scenes/WinterDeathmatch.unity
+    guid: 7f0e59321ae77c841ba0a77c226d1370
   m_configObjects: {}
