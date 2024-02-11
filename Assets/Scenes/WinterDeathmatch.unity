@@ -2550,6 +2550,27 @@ MonoBehaviour:
   - {fileID: 3480925717231997100, guid: 32d940292a856304598c4545aac69430, type: 3}
   - {fileID: 8916165074478792475, guid: a8decd75a581cb6499cae6ea42c7e673, type: 3}
   - {fileID: 8707822257690900613, guid: b0d5734e847ac844aaf971437048cc44, type: 3}
+  enemySpawnDelay: 4
+  enemyPrefabs:
+  - {fileID: 9005609123206068844, guid: f2a19859b301a454ca842b026e34f3eb, type: 3}
+  - {fileID: 8011185772244604310, guid: f6a6c69c673b42b4a8bbbffdf608629c, type: 3}
+  - {fileID: 4928683132409739721, guid: bbf58ec3c47d1e3488ae8ef52291d0d8, type: 3}
+  - {fileID: 3619542631147969672, guid: 66a7331d9d7e903418aad6d15f8b4fbe, type: 3}
+  - {fileID: 7607640973485955964, guid: 92afed1b9062a04489587fb619073ba8, type: 3}
+  enemyPosSpawn:
+  - {x: 5, y: 1.9, z: 0}
+  - {x: 5, y: 0, z: 0}
+  - {x: 5, y: -1.9, z: 0}
+  - {x: 5, y: 1, z: 0}
+  - {x: 5, y: -1, z: 0}
+  coinSpawnDelay: 4
+  coinPrefab: {fileID: 2367840360610026979, guid: 16f63eab4db438a41ab5b8f4c1ec1128, type: 3}
+  coinSpawnPosition:
+  - {x: 7, y: 0, z: 0}
+  - {x: 7, y: 1.1, z: 0}
+  - {x: 7, y: -1.1, z: 0}
+  - {x: 7, y: 2, z: 0}
+  - {x: 7, y: -2, z: 0}
 --- !u!4 &1212158468
 Transform:
   m_ObjectHideFlags: 0

@@ -24,9 +24,9 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Fire()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.3f);
         Instantiate(bulletPrefab, 
-            new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z)
+            new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z)
             , Quaternion.identity);
         StartCoroutine(Fire());
     }
