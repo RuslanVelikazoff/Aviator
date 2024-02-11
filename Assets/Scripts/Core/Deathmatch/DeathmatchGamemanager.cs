@@ -102,7 +102,8 @@ public class DeathmatchGamemanager : MonoBehaviour
     public void RestartGame()
     {
         SaveGameProgress();
-
+        Time.timeScale = 1;
+            
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 0)
         {
             SceneManager.LoadScene(3); //Winter deathmatch 

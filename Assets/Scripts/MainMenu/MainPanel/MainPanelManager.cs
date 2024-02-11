@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 using UnityEngine.UI;
 
 public class MainPanelManager : MonoBehaviour
@@ -24,6 +24,8 @@ public class MainPanelManager : MonoBehaviour
 
     [SerializeField]
     private StartData data;
+    [SerializeField] 
+    private LevelUp levelManager;
 
     private void OnEnable()
     {
@@ -31,7 +33,15 @@ public class MainPanelManager : MonoBehaviour
 
         levelText.text = PlayerPrefs.GetInt(Constants.DATA.LEVEL).ToString();
 
-        expText.text = PlayerPrefs.GetInt(Constants.DATA.EXP) + " / 1000"; //TODO: продумать систему прокачки
+        if (PlayerPrefs.GetInt(Constants.DATA.LEVEL) < levelManager.maxLevel)
+        {
+            expText.text = PlayerPrefs.GetInt(Constants.DATA.EXP)
+                           + " / " + levelManager.expNeeded[PlayerPrefs.GetInt(Constants.DATA.LEVEL) - 1];
+        }
+        else
+        {
+            expText.text = PlayerPrefs.GetInt(Constants.DATA.EXP).ToString();
+        }
     }
 
     private void Start()

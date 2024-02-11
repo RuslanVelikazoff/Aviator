@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MapsHangarManager : MonoBehaviour
 {
@@ -121,41 +122,65 @@ public class MapsHangarManager : MonoBehaviour
             playButton.onClick.RemoveAllListeners();
             playButton.onClick.AddListener(() =>
             {
-                //TODO: добавить запуск уровня
+                //TODO: добавить запуск уровня xp
                 if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 0) //Winter
                 {
-                    //TODO: тут прописать проверку на игровой мод
-                    Debug.Log("Airplanes index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES));
-                    Debug.Log("Map index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL));
-                    Debug.Log("Gamemode index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE));
+                    if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+                    {
+                        SceneManager.LoadScene(3);
+                    }
+                    else
+                    {
+                        //xp
+                    }
                 }
 
                 else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 1) //Volcano
                 {
-                    Debug.Log("Airplanes index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES));
-                    Debug.Log("Map index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL));
-                    Debug.Log("Gamemode index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE));
+                    if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+                    {
+                        SceneManager.LoadScene(4);
+                    }
+                    else
+                    {
+                        //xp
+                    }
                 }
 
                 else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 2) //Forest
                 {
-                    Debug.Log("Airplanes index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES));
-                    Debug.Log("Map index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL));
-                    Debug.Log("Gamemode index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE));
+                    if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+                    {
+                        SceneManager.LoadScene(5);
+                    }
+                    else
+                    {
+                        //xp
+                    }
                 }
 
                 else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 3) //City
                 {
-                    Debug.Log("Airplanes index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES));
-                    Debug.Log("Map index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL));
-                    Debug.Log("Gamemode index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE));
+                    if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+                    {
+                        SceneManager.LoadScene(6);
+                    }
+                    else
+                    {
+                        //xp
+                    }
                 }
 
                 else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 4) //Space
                 {
-                    Debug.Log("Airplanes index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES));
-                    Debug.Log("Map index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL));
-                    Debug.Log("Gamemode index: " + PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE));
+                    if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+                    {
+                        SceneManager.LoadScene(7);
+                    }
+                    else
+                    {
+                        //xp
+                    }
                 }
 
                 else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) != index)
