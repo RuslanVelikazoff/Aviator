@@ -14,12 +14,12 @@ public class Bullet : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         
-        StartCoroutine(BulletLiveTimer());
+        StartCoroutine(BulletLifeTimer());
 
         rigidbody.velocity = transform.right * speed;
     }
     
-    private IEnumerator BulletLiveTimer()
+    private IEnumerator BulletLifeTimer()
     {
         yield return new WaitForSeconds(lifeTime);
         if (this.gameObject != null)

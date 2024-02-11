@@ -51,6 +51,18 @@ public class Player : MonoBehaviour
             gamemanager.DamagePlayer();
         };
 
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            gamemanager.DamagePlayer();
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("EnemyBullet"))
+        {
+            gamemanager.DamagePlayer();
+            Destroy(other.gameObject);
+        }
+
         if (other.gameObject.CompareTag("Coin"))
         {
             gamemanager.CollectedCoin(other.gameObject.GetComponent<Coin>().amount);
