@@ -30,6 +30,16 @@ public class Player : MonoBehaviour
         {
             Fly();
         }
+
+        if (Input.GetMouseButton(0))
+        {
+            Fly();
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            Fire();
+        }
     }
 
     public void Fly()
