@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8944807346509160973}
   - component: {fileID: 1902190907396080612}
-  - component: {fileID: 7820949475964223386}
+  - component: {fileID: 2610472761540871538}
   m_Layer: 0
   m_Name: ObstacleDown5
   m_TagString: Obstacle
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48304063751801524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.88, y: 1.77, z: 0}
+  m_LocalPosition: {x: 2.88, y: 2.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 179a4b6a13d8371449eb46ad7fed1842, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 074ab6bcbd9c0ac46858c3d48b6b983f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7820949475964223386
+--- !u!61 &2610472761540871538
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,14 +102,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.44, y: 3.38}
+    oldSize: {x: 1.44, y: 1.96}
     newSize: {x: 1.44, y: 0.88}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.44, y: 3.38}
+  m_Size: {x: 1.44, y: 1.96}
   m_EdgeRadius: 0
 --- !u!1 &2416733387380317627
 GameObject:
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 3514776654215788549}
   m_Layer: 0
   m_Name: WinterObstaclePrefab5
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

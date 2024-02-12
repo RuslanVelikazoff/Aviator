@@ -11,24 +11,11 @@ namespace SaveData
 
         public GameData()
         {
-            //TODO: delete this
-
-            for (int i = 0; i < airplanesOpen.Length; i++)
-            {
-                airplanesOpen[i] = true;
-                airplanesBuy[i] = true;
-            }
-            for (int i = 0; i < mapsBuy.Length; i++)
-            {
-                mapsBuy[i] = true;
-                mapsOpen[i] = true;
-            }
-
-            /*airplanesOpen[0] = true;
+            airplanesOpen[0] = true;
             mapsOpen[0] = true;
 
             airplanesBuy[0] = true;
-            mapsBuy[0] = true;*/
+            mapsBuy[0] = true;
         }
     }
 }

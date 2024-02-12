@@ -42,7 +42,7 @@ public class GamemodePanel : MonoBehaviour
             });
         }
 
-        if (xpgainingButton!= null)
+        if (xpgainingButton != null)
         {
             xpgainingButton.onClick.RemoveAllListeners();
             xpgainingButton.onClick.AddListener(() =>

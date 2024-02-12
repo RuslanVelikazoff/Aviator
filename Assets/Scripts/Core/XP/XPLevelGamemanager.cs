@@ -73,7 +73,6 @@ public class XPLevelGamemanager : MonoBehaviour
 
     public void DamagePlayer()
     {
-        Debug.Log("Damage");
         player.lifes -= 1;
         levelUI.SetHeartAmount();
 

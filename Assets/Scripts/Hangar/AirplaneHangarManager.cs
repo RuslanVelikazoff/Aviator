@@ -132,7 +132,6 @@ public class AirplaneHangarManager : MonoBehaviour
             playButton.onClick.RemoveAllListeners();
             playButton.onClick.AddListener(() =>
             {
-                //TODO: добавить запуск уровня xp
                 if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 0) //Winter
                 {
                     if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
@@ -153,7 +152,7 @@ public class AirplaneHangarManager : MonoBehaviour
                     }
                     else
                     {
-                        //xp
+                        SceneManager.LoadScene(9);
                     }
                 }
 
@@ -165,7 +164,7 @@ public class AirplaneHangarManager : MonoBehaviour
                     }
                     else
                     {
-                        //xp
+                        SceneManager.LoadScene(10);
                     }
                 }
 
@@ -177,7 +176,7 @@ public class AirplaneHangarManager : MonoBehaviour
                     }
                     else
                     {
-                        //xp
+                        SceneManager.LoadScene(11);
                     }
                 }
 
@@ -189,7 +188,7 @@ public class AirplaneHangarManager : MonoBehaviour
                     }
                     else
                     {
-                        //xp
+                        SceneManager.LoadScene(12);
                     }
                 }
 

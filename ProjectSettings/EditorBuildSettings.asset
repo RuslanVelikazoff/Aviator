@@ -32,4 +32,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinterXP.unity
     guid: 11ad3b3d057eb443b868303767381655
+  - enabled: 1
+    path: Assets/Scenes/VolcanoXP.unity
+    guid: 31acc6968aaef4f55b917b00b89e2080
+  - enabled: 1
+    path: Assets/Scenes/ForestXP.unity
+    guid: b61c95cdc08ca4f67b5826df538d9909
+  - enabled: 1
+    path: Assets/Scenes/CityXP.unity
+    guid: d48a241d81cf84e24b8e2954cf9bdbce
+  - enabled: 1
+    path: Assets/Scenes/SpaceXP.unity
+    guid: 8cc8c8129ed024c91be26da540df210a
   m_configObjects: {}

@@ -1,4 +1,4 @@
- using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class MainPanelManager : MonoBehaviour
@@ -29,6 +29,8 @@ public class MainPanelManager : MonoBehaviour
 
     private void OnEnable()
     {
+        ButtonClickAction();
+
         coinText.text = PlayerPrefs.GetInt(Constants.DATA.COIN).ToString();
 
         levelText.text = PlayerPrefs.GetInt(Constants.DATA.LEVEL).ToString();
@@ -49,8 +51,6 @@ public class MainPanelManager : MonoBehaviour
         mainPanel.SetActive(true);
         shopPanel.SetActive(false);
         gamemodePanel.SetActive(false);
-
-        ButtonClickAction();
     }
 
     private void ButtonClickAction()

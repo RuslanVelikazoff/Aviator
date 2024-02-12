@@ -122,7 +122,6 @@ public class MapsHangarManager : MonoBehaviour
             playButton.onClick.RemoveAllListeners();
             playButton.onClick.AddListener(() =>
             {
-                //TODO: добавить запуск уровня xp
                 if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 0) //Winter
                 {
                     if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
@@ -143,7 +142,7 @@ public class MapsHangarManager : MonoBehaviour
                     }
                     else
                     {
-                        //xp
+                        SceneManager.LoadScene(9);
                     }
                 }
 
@@ -155,7 +154,7 @@ public class MapsHangarManager : MonoBehaviour
                     }
                     else
                     {
-                        //xp
+                        SceneManager.LoadScene(10);
                     }
                 }
 
@@ -167,7 +166,7 @@ public class MapsHangarManager : MonoBehaviour
                     }
                     else
                     {
-                        //xp
+                        SceneManager.LoadScene(11);
                     }
                 }
 
@@ -179,7 +178,7 @@ public class MapsHangarManager : MonoBehaviour
                     }
                     else
                     {
-                        //xp
+                        SceneManager.LoadScene(12);
                     }
                 }
 

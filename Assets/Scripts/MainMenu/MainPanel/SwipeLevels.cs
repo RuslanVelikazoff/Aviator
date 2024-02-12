@@ -135,7 +135,6 @@ public class SwipeLevels : MonoBehaviour
         }
     }
 
-    //TODO: протестировать, когда уровень будет
     private void ButtonSprite(int index)
     {
         for (int i = 0; i < playButtons.Length; i++)
