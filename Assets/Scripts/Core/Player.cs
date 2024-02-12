@@ -15,13 +15,22 @@ public class Player : MonoBehaviour
     
     private Rigidbody2D rigidbody;
 
-    private DeathmatchGamemanager gamemanager;
+    private DeathmatchGamemanager DMgamemanager;
+    private XPLevelGamemanager XPgamemanager;
 
     private void Awake()
     {
         lifesAmount = lifes;
         rigidbody = GetComponent<Rigidbody2D>();
-        gamemanager = FindObjectOfType<DeathmatchGamemanager>();
+
+        if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+        {
+            DMgamemanager = FindObjectOfType<DeathmatchGamemanager>();
+        }
+        if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 1)
+        {
+            XPgamemanager = FindObjectOfType<XPLevelGamemanager>();
+        }
     }
 
     private void Update()
@@ -29,16 +38,6 @@ public class Player : MonoBehaviour
         if (fly)
         {
             Fly();
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            Fly();
-        }
-
-        if (Input.GetMouseButton(1))
-        {
-            Fire();
         }
     }
 
@@ -49,7 +48,7 @@ public class Player : MonoBehaviour
 
     public void Fire()
     {
-        Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        Instantiate(bulletPrefab, new Vector3(transform.position.x + .7f, transform.position.y, transform.position.z), Quaternion.identity);
     }
 
     public void RefilLifes()
@@ -61,25 +60,59 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            gamemanager.DamagePlayer();
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+            {
+                DMgamemanager.DamagePlayer();
+            }
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 1)
+            {
+                XPgamemanager.DamagePlayer();
+            }
         };
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            gamemanager.DamagePlayer();
-            Destroy(other.gameObject);
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+            {
+                DMgamemanager.DamagePlayer();
+                Destroy(other.gameObject);
+            }
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 1)
+            {
+                XPgamemanager.DamagePlayer();
+                Destroy(other.gameObject);
+            }
         }
 
         if (other.gameObject.CompareTag("EnemyBullet"))
         {
-            gamemanager.DamagePlayer();
-            Destroy(other.gameObject);
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+            {
+                DMgamemanager.DamagePlayer();
+                Destroy(other.gameObject);
+            }
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 1)
+            {
+                XPgamemanager.DamagePlayer();
+                Destroy(other.gameObject);
+            }
         }
+    }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         if (other.gameObject.CompareTag("Coin"))
         {
-            gamemanager.CollectedCoin(other.gameObject.GetComponent<Coin>().amount);
-            Destroy(other.gameObject);
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+            {
+                DMgamemanager.CollectedCoin(other.gameObject.GetComponent<Coin>().amount);
+                Destroy(other.gameObject);
+            }
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 1)
+            {
+                XPgamemanager.CollectedCoin(other.gameObject.GetComponent<Coin>().amount);
+                Destroy(other.gameObject);
+            }
         }
     }
 }

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SpaceDeathmatch.unity
     guid: 5d28d7d6803a39b4bbeafec2f18467c8
+  - enabled: 1
+    path: Assets/Scenes/WinterXP.unity
+    guid: 11ad3b3d057eb443b868303767381655
   m_configObjects: {}

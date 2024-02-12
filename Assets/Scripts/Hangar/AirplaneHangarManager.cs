@@ -139,9 +139,9 @@ public class AirplaneHangarManager : MonoBehaviour
                     {
                         SceneManager.LoadScene(3);
                     }
-                    else
+                    else if(PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 1)
                     {
-                        //xp
+                        SceneManager.LoadScene(8);
                     }
                 }
 

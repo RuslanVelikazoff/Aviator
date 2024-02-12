@@ -44,7 +44,7 @@ public class SwipeLevels : MonoBehaviour
 
         if (Input.touches.Length > 0)
         {
-            if (Input.touches[0].phase == TouchPhase.Began)
+            if (Input.touches[0].phase == TouchPhase.Began || Input.touches[0].phase == TouchPhase.Moved)
             {
                 scrollPosition = scrollBar.GetComponent<Scrollbar>().value;
             }
@@ -60,13 +60,13 @@ public class SwipeLevels : MonoBehaviour
                 }
             }
         }
-        else
+        /*else
         {
             if (Input.GetMouseButton(0))
             {
                 scrollPosition = scrollBar.GetComponent<Scrollbar>().value;
             }
-            else
+            else if (!Input.GetMouseButton(0))
             {
                 for (int i = 0; i < position.Length; i++)
                 {
@@ -77,7 +77,7 @@ public class SwipeLevels : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
     }
 
     private void LevelSprite()
