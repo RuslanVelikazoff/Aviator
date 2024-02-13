@@ -19,6 +19,8 @@ public class OnBoardingOnWebviewManager : MonoBehaviour
     [SerializeField]
     private Button webviewButton;
 
+    private WebViewTemplate webView;
+
     private void Awake()
     {
         onboardingGameObject1.SetActive(true);
@@ -28,6 +30,7 @@ public class OnBoardingOnWebviewManager : MonoBehaviour
 
     private void Start()
     {
+        webView = FindObjectOfType<WebViewTemplate>();
         ButtonClickAction();
     }
 
@@ -68,7 +71,7 @@ public class OnBoardingOnWebviewManager : MonoBehaviour
             webviewButton.onClick.RemoveAllListeners();
             webviewButton.onClick.AddListener(() =>
             {
-                Debug.Log("WebviewButton");
+                webView.DefindAndOpen();
             });
         }
     }
