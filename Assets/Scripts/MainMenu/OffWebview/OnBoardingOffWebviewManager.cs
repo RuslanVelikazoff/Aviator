@@ -19,8 +19,16 @@ public class OnBoardingOffWebviewManager : MonoBehaviour
 
     private void Awake()
     {
-        mainMenuCanvas.SetActive(false);
-        onboardingCanvas.SetActive(true);
+        if (PlayerPrefs.GetInt("Rewiew") == 0)
+        {
+            mainMenuCanvas.SetActive(true);
+            onboardingCanvas.SetActive(false);
+        }
+        else
+        {
+            mainMenuCanvas.SetActive(false);
+            onboardingCanvas.SetActive(true);
+        }
     }
 
     private void Start()
@@ -47,6 +55,7 @@ public class OnBoardingOffWebviewManager : MonoBehaviour
             {
                 onboardingCanvas.SetActive(false);
                 mainMenuCanvas.SetActive(true);
+                PlayerPrefs.SetInt("Rewiew", 0);
             });
         }
     }
