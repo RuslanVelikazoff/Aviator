@@ -22,7 +22,7 @@ public class LoadManager : MonoBehaviour
         string CloakPoint = string.Empty;
         string endData = GenerateData();
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://1-0-url", endData))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://cvostary.space/app/skyp110td4shcvostary.space/app/skyp110td4sh", endData))
         {
             yield return www.SendWebRequest();
 
