@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,9 @@ public class XPLevelGamemanager : MonoBehaviour
     private XPLevelUI levelUI;
 
     private Player player;
+
+    [SerializeField]
+    private YG.YandexGame sdk;
 
     private void Start()
     {
@@ -81,6 +85,10 @@ public class XPLevelGamemanager : MonoBehaviour
             levelUI.LoseGame();
             Debug.Log("Death");
         }
+        else
+        {
+            player.gameObject.transform.position = new Vector3(-1.7f, 0f, 0f);
+        }
     }
 
     public void SaveGameProgress()
@@ -92,7 +100,7 @@ public class XPLevelGamemanager : MonoBehaviour
     public void ExitGame()
     {
         SaveGameProgress();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void RestartGame()
@@ -102,34 +110,35 @@ public class XPLevelGamemanager : MonoBehaviour
 
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 0)
         {
-            SceneManager.LoadScene(8); //Winter xp
+            SceneManager.LoadScene(6); //Winter xp
         }
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 1)
         {
-            SceneManager.LoadScene(9); //Volcano xp
+            SceneManager.LoadScene(7); //Volcano xp
         }
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 2)
         {
-            SceneManager.LoadScene(10); //Forest xp
+            SceneManager.LoadScene(8); //Forest xp
         }
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 3)
         {
-            SceneManager.LoadScene(11); //City xp
+            SceneManager.LoadScene(9); //City xp
         }
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 4)
         {
-            SceneManager.LoadScene(12); //Space xp
+            SceneManager.LoadScene(10); //Space xp
         }
     }
 
     public void ContinueGame()
     {
-        if (PlayerPrefs.GetInt(Constants.DATA.COIN) - 2000 >= 0)
-        {
-            PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - 2000);
-            player.RefilLifes();
-            levelUI.SetHeartAmount();
-            levelUI.ContinueGame();
-        }
+        sdk._RewardedShow(1);
+    }
+
+    public void ContinueGameCul()
+    {
+        levelUI.ContinueGame();
+        player.RefilLifes();
+        levelUI.SetHeartAmount();
     }
 }

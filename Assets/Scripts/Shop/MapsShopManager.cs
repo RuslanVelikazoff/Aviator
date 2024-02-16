@@ -24,9 +24,6 @@ public class MapsShopManager : MonoBehaviour
     [SerializeField]
     private Text coinText;
 
-    [SerializeField]
-    private StartData data;
-
     private void OnEnable()
     {
         buyButtonGameObject.SetActive(false);
@@ -94,18 +91,85 @@ public class MapsShopManager : MonoBehaviour
             buyButton.onClick.RemoveAllListeners();
             buyButton.onClick.AddListener(() =>
             {
-                if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
+                //Добавить проверку индекса
+                if (index == 0)
                 {
-                    PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - cost);
-                    UpdateCoinText();
+                    if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
+                    {
+                        PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - cost);
+                        UpdateCoinText();
 
-                    data._mapsBuy[index] = true;
-                    data.Save();
-                    SetBuyButton(index, cost, level);
+                        PlayerPrefs.SetString(Constants.DATA.MAP_BUY_0, Constants.DATA.TRUE);
+                        SetBuyButton(index, cost, level);
+                    }
+                    else
+                    {
+                        Debug.Log("Недостаточно средств");
+                    }
                 }
-                else
+
+                if (index == 1)
                 {
-                    Debug.Log("Недостаточно средств");
+                    if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
+                    {
+                        PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - cost);
+                        UpdateCoinText();
+
+                        PlayerPrefs.SetString(Constants.DATA.MAP_BUY_1, Constants.DATA.TRUE);
+                        SetBuyButton(index, cost, level);
+                    }
+                    else
+                    {
+                        Debug.Log("Недостаточно средств");
+                    }
+                }
+
+                if (index == 2)
+                {
+                    if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
+                    {
+                        PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - cost);
+                        UpdateCoinText();
+
+                        PlayerPrefs.SetString(Constants.DATA.MAP_BUY_2, Constants.DATA.TRUE);
+                        SetBuyButton(index, cost, level);
+                    }
+                    else
+                    {
+                        Debug.Log("Недостаточно средств");
+                    }
+                }
+
+                if (index == 3)
+                {
+                    if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
+                    {
+                        PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - cost);
+                        UpdateCoinText();
+
+                        PlayerPrefs.SetString(Constants.DATA.MAP_BUY_3, Constants.DATA.TRUE);
+                        SetBuyButton(index, cost, level);
+                    }
+                    else
+                    {
+                        Debug.Log("Недостаточно средств");
+                    }
+                }
+
+                if (index == 4)
+                {
+                    if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
+                    {
+                        PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - cost);
+                        UpdateCoinText();
+
+                        PlayerPrefs.SetString(Constants.DATA.MAP_BUY_4, Constants.DATA.TRUE);
+                        SetBuyButton(index, cost, level);
+                    }
+                    else
+                    {
+                        Debug.Log("Недостаточно средств");
+                    }
                 }
             });
         }
@@ -113,35 +177,162 @@ public class MapsShopManager : MonoBehaviour
 
     private void SetBuyButton(int index, int cost, int level)
     {
-        if (data._mapsBuy[index] && data._mapsOpen[index])
+        if (index == 0)
         {
-            buyButtonGameObject.SetActive(false);
+            if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_0) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_0) == Constants.DATA.TRUE)
+            {
+                buyButtonGameObject.SetActive(false);
+            }
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_0) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_0) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                BuyButtonClickAction(index, cost, level);
+            }
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_0) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_0) == Constants.DATA.FALSE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+            }
         }
-        else if (!data._mapsBuy[index] && data._mapsOpen[index])
+
+        if (index == 1)
         {
-            buyButton.GetComponent<Image>().sprite = unlockSprite;
-            buyButtonText.text = "BUY " + cost + " COINS";
-            BuyButtonClickAction(index, cost, level);
+            if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_1) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_1) == Constants.DATA.TRUE)
+            {
+                buyButtonGameObject.SetActive(false);
+            }
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_1) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_1) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                BuyButtonClickAction(index, cost, level);
+            }
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_1) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_1) == Constants.DATA.FALSE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+            }
         }
-        else if (!data._mapsBuy[index] && !data._mapsOpen[index])
+
+        if (index == 2)
         {
-            buyButton.GetComponent<Image>().sprite = lockSprite;
-            buyButtonText.text = "UNLOCK ON LVL " + level;
+            if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_2) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_2) == Constants.DATA.TRUE)
+            {
+                buyButtonGameObject.SetActive(false);
+            }
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_2) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_2) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                BuyButtonClickAction(index, cost, level);
+            }
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_2) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_2) == Constants.DATA.FALSE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+            }
+        }
+
+        if (index == 3)
+        {
+            if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_3) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_3) == Constants.DATA.TRUE)
+            {
+                buyButtonGameObject.SetActive(false);
+            }
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_3) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_3) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                BuyButtonClickAction(index, cost, level);
+            }
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_3) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_3) == Constants.DATA.FALSE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+            }
+        }
+
+        if (index == 4)
+        {
+            if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_4) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_4) == Constants.DATA.TRUE)
+            {
+                buyButtonGameObject.SetActive(false);
+            }
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_4) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_4) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                BuyButtonClickAction(index, cost, level);
+            }
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_4) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_4) == Constants.DATA.FALSE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+            }
         }
     }
 
     private void SetSprites()
     {
-        for (int i = 0; i < lockSprites.Length; i++)
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_0) == Constants.DATA.TRUE)
         {
-            if (data._mapsOpen[i])
-            {
-                mapsButtons[i].GetComponent<Image>().sprite = unlockSprites[i];
-            }
-            else
-            {
-                mapsButtons[i].GetComponent<Image>().sprite = lockSprites[i];
-            }
+            mapsButtons[0].GetComponent<Image>().sprite = unlockSprites[0];
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_0) == Constants.DATA.FALSE)
+        {
+            mapsButtons[0].GetComponent<Image>().sprite = lockSprites[0];
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_1) == Constants.DATA.TRUE)
+        {
+            mapsButtons[1].GetComponent<Image>().sprite = unlockSprites[1];
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_1) == Constants.DATA.FALSE)
+        {
+            mapsButtons[1].GetComponent<Image>().sprite = lockSprites[1];
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_2) == Constants.DATA.TRUE)
+        {
+            mapsButtons[2].GetComponent<Image>().sprite = unlockSprites[2];
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_2) == Constants.DATA.FALSE)
+        {
+            mapsButtons[2].GetComponent<Image>().sprite = lockSprites[2];
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_3) == Constants.DATA.TRUE)
+        {
+            mapsButtons[3].GetComponent<Image>().sprite = unlockSprites[3];
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_3) == Constants.DATA.FALSE)
+        {
+            mapsButtons[3].GetComponent<Image>().sprite = lockSprites[3];
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_4) == Constants.DATA.TRUE)
+        {
+            mapsButtons[4].GetComponent<Image>().sprite = unlockSprites[4];
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_0) == Constants.DATA.FALSE)
+        {
+            mapsButtons[4].GetComponent<Image>().sprite = lockSprites[4];
         }
     }
 

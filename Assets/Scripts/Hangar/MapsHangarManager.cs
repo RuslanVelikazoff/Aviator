@@ -20,32 +20,62 @@ public class MapsHangarManager : MonoBehaviour
     [SerializeField]
     private GameObject[] mapsButtonsGameObjects;
 
-    [SerializeField]
-    private StartData data;
-
     private void OnEnable()
     {
         playButtonGameObject.SetActive(false);
         SetActiveMaps();
-        AirplanesButtonClickAction();
+        MapsButtonClickAction();
     }
 
     private void SetActiveMaps()
     {
-        for (int i = 0; i < mapsButtonsGameObjects.Length; i++)
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_0) == Constants.DATA.TRUE)
         {
-            if (data._mapsBuy[i])
-            {
-                mapsButtonsGameObjects[i].SetActive(true);
-            }
-            else
-            {
-                mapsButtonsGameObjects[i].SetActive(false);
-            }
+            mapsButtonsGameObjects[0].SetActive(true);
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_0) == Constants.DATA.FALSE)
+        {
+            mapsButtonsGameObjects[0].SetActive(false);
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_1) == Constants.DATA.TRUE)
+        {
+            mapsButtonsGameObjects[1].SetActive(true);
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_1) == Constants.DATA.FALSE)
+        {
+            mapsButtonsGameObjects[1].SetActive(false);
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_2) == Constants.DATA.TRUE)
+        {
+            mapsButtonsGameObjects[2].SetActive(true);
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_2) == Constants.DATA.FALSE)
+        {
+            mapsButtonsGameObjects[2].SetActive(false);
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_3) == Constants.DATA.TRUE)
+        {
+            mapsButtonsGameObjects[3].SetActive(true);
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_3) == Constants.DATA.FALSE)
+        {
+            mapsButtonsGameObjects[3].SetActive(false);
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_4) == Constants.DATA.TRUE)
+        {
+            mapsButtonsGameObjects[4].SetActive(true);
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_4) == Constants.DATA.FALSE)
+        {
+            mapsButtonsGameObjects[4].SetActive(false);
         }
     }
 
-    private void AirplanesButtonClickAction()
+    private void MapsButtonClickAction()
     {
         if (mapsButtons[0] != null)
         {
@@ -104,13 +134,13 @@ public class MapsHangarManager : MonoBehaviour
         {
             PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, index);
             playButton.GetComponent<Image>().sprite = playSprite;
-            playButtonText.text = "PLAY";
+            playButtonText.text = "ИГРАТЬ";
             PlayButtonClickAction(index);
         }
         else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) != index)
         {
             playButton.GetComponent<Image>().sprite = unlockSprite;
-            playButtonText.text = "SELECT";
+            playButtonText.text = "ВЫБРАТЬ";
             PlayButtonClickAction(index);
         }
     }
@@ -126,15 +156,39 @@ public class MapsHangarManager : MonoBehaviour
                 {
                     if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
                     {
-                        SceneManager.LoadScene(3);
+                        SceneManager.LoadScene(1);
                     }
                     else if(PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 1)
+                    {
+                        SceneManager.LoadScene(6);
+                    }
+                }
+
+                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 1) //Volcano
+                {
+                    if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+                    {
+                        SceneManager.LoadScene(2);
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(7);
+                    }
+                }
+
+                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 2) //Forest
+                {
+                    if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+                    {
+                        SceneManager.LoadScene(3);
+                    }
+                    else
                     {
                         SceneManager.LoadScene(8);
                     }
                 }
 
-                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 1) //Volcano
+                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 3) //City
                 {
                     if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
                     {
@@ -146,7 +200,7 @@ public class MapsHangarManager : MonoBehaviour
                     }
                 }
 
-                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 2) //Forest
+                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 4) //Space
                 {
                     if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
                     {
@@ -155,30 +209,6 @@ public class MapsHangarManager : MonoBehaviour
                     else
                     {
                         SceneManager.LoadScene(10);
-                    }
-                }
-
-                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 3) //City
-                {
-                    if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
-                    {
-                        SceneManager.LoadScene(6);
-                    }
-                    else
-                    {
-                        SceneManager.LoadScene(11);
-                    }
-                }
-
-                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 4) //Space
-                {
-                    if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
-                    {
-                        SceneManager.LoadScene(7);
-                    }
-                    else
-                    {
-                        SceneManager.LoadScene(12);
                     }
                 }
 

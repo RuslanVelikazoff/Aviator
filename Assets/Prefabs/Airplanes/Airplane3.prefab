@@ -103,6 +103,7 @@ MonoBehaviour:
   upForce: 4
   fly: 0
   bulletPrefab: {fileID: 5825540591158585490, guid: c6433877d82f4d84ebe6c94b9a894ea0, type: 3}
+  collider: {fileID: 1053096547051522990}
 --- !u!50 &5452791037175460453
 Rigidbody2D:
   serializedVersion: 4

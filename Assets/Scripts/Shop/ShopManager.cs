@@ -98,7 +98,7 @@ public class ShopManager : MonoBehaviour
 
     private void SetTexts()
     {
-        levelText.text = "Level " + PlayerPrefs.GetInt(Constants.DATA.LEVEL);
+        levelText.text = "Уровень " + PlayerPrefs.GetInt(Constants.DATA.LEVEL);
         coinText.text = PlayerPrefs.GetInt(Constants.DATA.COIN).ToString();
     }
 

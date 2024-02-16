@@ -34,6 +34,14 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKey(KeyCode.W))
+        {
+            Fly();
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Fire();
+        }
         if (fly)
         {
             Fly();

@@ -20,9 +20,6 @@ public class AirplaneHangarManager : MonoBehaviour
     [SerializeField]
     private GameObject[] airplanesButtonsGameObjects;
 
-    [SerializeField]
-    private StartData data;
-
     private void OnEnable()
     {
         playButtonGameObject.SetActive(false);
@@ -32,16 +29,58 @@ public class AirplaneHangarManager : MonoBehaviour
 
     private void SetActiveAirplanes()
     {
-        for (int i = 0; i < airplanesButtonsGameObjects.Length; i++)
+        if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_0) == Constants.DATA.TRUE)
         {
-            if (data._airplanesBuy[i])
-            {
-                airplanesButtonsGameObjects[i].SetActive(true);
-            }
-            else
-            {
-                airplanesButtonsGameObjects[i].SetActive(false);
-            }
+            airplanesButtonsGameObjects[0].SetActive(true);
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_0) == Constants.DATA.FALSE)
+        {
+            airplanesButtonsGameObjects[0].SetActive(false);
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_1) == Constants.DATA.TRUE)
+        {
+            airplanesButtonsGameObjects[1].SetActive(true);
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_1) == Constants.DATA.FALSE)
+        {
+            airplanesButtonsGameObjects[1].SetActive(false);
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_2) == Constants.DATA.TRUE)
+        {
+            airplanesButtonsGameObjects[2].SetActive(true);
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_2) == Constants.DATA.FALSE)
+        {
+            airplanesButtonsGameObjects[2].SetActive(false);
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_3) == Constants.DATA.TRUE)
+        {
+            airplanesButtonsGameObjects[3].SetActive(true);
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_3) == Constants.DATA.FALSE)
+        {
+            airplanesButtonsGameObjects[3].SetActive(false);
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_4) == Constants.DATA.TRUE)
+        {
+            airplanesButtonsGameObjects[4].SetActive(true);
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_4) == Constants.DATA.FALSE)
+        {
+            airplanesButtonsGameObjects[4].SetActive(false);
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_5) == Constants.DATA.TRUE)
+        {
+            airplanesButtonsGameObjects[5].SetActive(true);
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_5) == Constants.DATA.FALSE)
+        {
+            airplanesButtonsGameObjects[5].SetActive(false);
         }
     }
 
@@ -114,13 +153,13 @@ public class AirplaneHangarManager : MonoBehaviour
         {
             PlayerPrefs.SetInt(Constants.DATA.SELECTED_AIRPLANES, index);
             playButton.GetComponent<Image>().sprite = playSprite;
-            playButtonText.text = "PLAY";
+            playButtonText.text = "ИГРАТЬ";
             PlayButtonClickAction(index);
         }
         else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index)
         {
             playButton.GetComponent<Image>().sprite = unlockSprite;
-            playButtonText.text = "SELECT";
+            playButtonText.text = "ВЫБРАТЬ";
             PlayButtonClickAction(index);
         }
     }
@@ -136,15 +175,39 @@ public class AirplaneHangarManager : MonoBehaviour
                 {
                     if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
                     {
-                        SceneManager.LoadScene(3);
+                        SceneManager.LoadScene(1);
                     }
                     else if(PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 1)
+                    {
+                        SceneManager.LoadScene(6);
+                    }
+                }
+
+                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 1) //Volcano
+                {
+                    if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+                    {
+                        SceneManager.LoadScene(2);
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(7);
+                    }
+                }
+
+                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 2) //Forest
+                {
+                    if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
+                    {
+                        SceneManager.LoadScene(3);
+                    }
+                    else
                     {
                         SceneManager.LoadScene(8);
                     }
                 }
 
-                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 1) //Volcano
+                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 3) //City
                 {
                     if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
                     {
@@ -156,7 +219,7 @@ public class AirplaneHangarManager : MonoBehaviour
                     }
                 }
 
-                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 2) //Forest
+                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 4) //Space
                 {
                     if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
                     {
@@ -165,30 +228,6 @@ public class AirplaneHangarManager : MonoBehaviour
                     else
                     {
                         SceneManager.LoadScene(10);
-                    }
-                }
-
-                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 3) //City
-                {
-                    if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
-                    {
-                        SceneManager.LoadScene(6);
-                    }
-                    else
-                    {
-                        SceneManager.LoadScene(11);
-                    }
-                }
-
-                else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index && PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 4) //Space
-                {
-                    if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
-                    {
-                        SceneManager.LoadScene(7);
-                    }
-                    else
-                    {
-                        SceneManager.LoadScene(12);
                     }
                 }
 

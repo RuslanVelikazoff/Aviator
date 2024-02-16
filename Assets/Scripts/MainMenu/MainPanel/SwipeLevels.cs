@@ -24,8 +24,6 @@ public class SwipeLevels : MonoBehaviour
     [SerializeField]
     private Text[] recordTexts;
 
-    [SerializeField]
-    private StartData data;
 
     private void Start()
     {
@@ -60,36 +58,34 @@ public class SwipeLevels : MonoBehaviour
                 }
             }
         }
-        /*else
+
+        if (Input.GetMouseButton(0))
         {
-            if (Input.GetMouseButton(0))
+            scrollPosition = scrollBar.GetComponent<Scrollbar>().value;
+        }
+        else if (!Input.GetMouseButton(0))
+        {
+            for (int i = 0; i < position.Length; i++)
             {
-                scrollPosition = scrollBar.GetComponent<Scrollbar>().value;
-            }
-            else if (!Input.GetMouseButton(0))
-            {
-                for (int i = 0; i < position.Length; i++)
+                if (scrollPosition < position[i] + (distance / 2) && scrollPosition > position[i] - (distance / 2))
                 {
-                    if (scrollPosition < position[i] + (distance / 2) && scrollPosition > position[i] - (distance / 2))
-                    {
-                        scrollBar.GetComponent<Scrollbar>().value = Mathf.Lerp(scrollBar.GetComponent<Scrollbar>().value, position[i], .1f);
-                        ButtonSprite(i);
-                    }
+                    scrollBar.GetComponent<Scrollbar>().value = Mathf.Lerp(scrollBar.GetComponent<Scrollbar>().value, position[i], .1f);
+                    ButtonSprite(i);
                 }
             }
-        }*/
+        }
     }
 
     private void LevelSprite()
     {
         unlockLevelImages[0].SetActive(true);
-        recordTexts[0].text = "Your record: " + "\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_WINTER).ToString();
+        recordTexts[0].text = "ВАШ РЕКОРД: " + "\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_WINTER).ToString();
         lockLevelImages[0].SetActive(false);
 
-        if (data._mapsBuy[1])
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_1) == Constants.DATA.TRUE)
         {
             unlockLevelImages[1].SetActive(true);
-            recordTexts[1].text = "Your record: " +"\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_VOLCANO).ToString();
+            recordTexts[1].text = "ВАШ РЕКОРД: " +"\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_VOLCANO).ToString();
             lockLevelImages[1].SetActive(false);
         }
         else
@@ -98,10 +94,10 @@ public class SwipeLevels : MonoBehaviour
             lockLevelImages[1].SetActive(true);
         }
 
-        if (data._mapsBuy[2])
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_2) == Constants.DATA.TRUE)
         {
             unlockLevelImages[2].SetActive(true);
-            recordTexts[2].text = "Your record: " + "\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_FOREST).ToString();
+            recordTexts[2].text = "ВАШ РЕКОРД: " + "\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_FOREST).ToString();
             lockLevelImages[2].SetActive(false);
         }
         else
@@ -110,10 +106,10 @@ public class SwipeLevels : MonoBehaviour
             lockLevelImages[2].SetActive(true);
         }
 
-        if (data._mapsBuy[3])
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_3) == Constants.DATA.TRUE)
         {
             unlockLevelImages[3].SetActive(true);
-            recordTexts[3].text = "Your record: " + "\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_CITY).ToString();
+            recordTexts[3].text = "ВАШ РЕКОРД: " + "\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_CITY).ToString();
             lockLevelImages[3].SetActive(false);
         }
         else
@@ -122,10 +118,10 @@ public class SwipeLevels : MonoBehaviour
             lockLevelImages[3].SetActive(true);
         }
 
-        if (data._mapsBuy[4])
+        if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_4) == Constants.DATA.TRUE)
         {
             unlockLevelImages[4].SetActive(true);
-            recordTexts[4].text = "Your record: " + "\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_SPACE).ToString();
+            recordTexts[4].text = "ВАШ РЕКОРД: " + "\n" + PlayerPrefs.GetInt(Constants.DATA.RECORD_SPACE).ToString();
             lockLevelImages[4].SetActive(false);
         }
         else
@@ -153,27 +149,29 @@ public class SwipeLevels : MonoBehaviour
         if (index == 0)
         {
             playButtons[index].SetActive(true);
-            buttonTexts[index].text = "PLAY";
+            buttonTexts[index].text = "ИГРАТЬ";
         }
 
         if (index == 1)
         {
             playButtons[index].SetActive(true);
 
-            if (data._mapsBuy[1] && data._mapsOpen[1])
+            if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_1) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_1) == Constants.DATA.TRUE)
             {
                 playButtons[index].GetComponent<Image>().sprite = unlockSprite;
-                buttonTexts[index].text = "PLAY";
+                buttonTexts[index].text = "ИГРАТЬ";
             }
-            else if (!data._mapsBuy[1] && data._mapsOpen[1])
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_1) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_1) == Constants.DATA.TRUE)
             {
                 playButtons[index].GetComponent<Image>().sprite = lockSprite;
-                buttonTexts[index].text = "THE LEVEL IS NOT PURCHASED";
+                buttonTexts[index].text = "УРОВЕНЬ НЕ ПРИОБРЕТЁН";
             }
             else
             {
                 playButtons[index].GetComponent<Image>().sprite = lockSprite;
-                buttonTexts[index].text = "UNLOCK ON LVL 10";
+                buttonTexts[index].text = "ОТКРОЕТСЯ НА 10 УРОВНЕ";
             }
         }
 
@@ -181,20 +179,22 @@ public class SwipeLevels : MonoBehaviour
         {
             playButtons[index].SetActive(true);
 
-            if (data._mapsBuy[2])
+            if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_2) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_2) == Constants.DATA.TRUE)
             {
                 playButtons[index].GetComponent<Image>().sprite = unlockSprite;
-                buttonTexts[index].text = "PLAY";
+                buttonTexts[index].text = "ИГРАТЬ";
             }
-            else if (!data._mapsBuy[2] && data._mapsOpen[2])
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_2) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_2) == Constants.DATA.TRUE)
             {
                 playButtons[index].GetComponent<Image>().sprite = lockSprite;
-                buttonTexts[index].text = "THE LEVEL IS NOT PURCHASED";
+                buttonTexts[index].text = "УРОВЕНЬ НЕ ПРИОБРЕТЁН";
             }
             else
             {
                 playButtons[index].GetComponent<Image>().sprite = lockSprite;
-                buttonTexts[index].text = "UNLOCK ON LVL 20";
+                buttonTexts[index].text = "ОТКРОЕТСЯ НА 20 УРОВНЕ";
             }
         }
 
@@ -202,20 +202,22 @@ public class SwipeLevels : MonoBehaviour
         {
             playButtons[index].SetActive(true);
 
-            if (data._mapsBuy[3])
+            if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_3) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_3) == Constants.DATA.TRUE)
             {
                 playButtons[index].GetComponent<Image>().sprite = unlockSprite;
-                buttonTexts[index].text = "PLAY";
+                buttonTexts[index].text = "ИГРАТЬ";
             }
-            else if (!data._mapsBuy[3] && data._mapsOpen[3])
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_3) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_3) == Constants.DATA.TRUE)
             {
                 playButtons[index].GetComponent<Image>().sprite = lockSprite;
-                buttonTexts[index].text = "THE LEVEL IS NOT PURCHASED";
+                buttonTexts[index].text = "УРОВЕНЬ НЕ ПРИОБРЕТЁН";
             }
             else
             {
                 playButtons[index].GetComponent<Image>().sprite = lockSprite;
-                buttonTexts[index].text = "UNLOCK ON LVL 30";
+                buttonTexts[index].text = "ОТКРОЕТСЯ НА 30 УРОВНЕ";
             }
         }
 
@@ -223,20 +225,22 @@ public class SwipeLevels : MonoBehaviour
         {
             playButtons[index].SetActive(true);
 
-            if (data._mapsBuy[4])
+            if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_4) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_4) == Constants.DATA.TRUE)
             {
                 playButtons[index].GetComponent<Image>().sprite = unlockSprite;
-                buttonTexts[index].text = "PLAY";
+                buttonTexts[index].text = "ИГРАТЬ";
             }
-            else if (!data._mapsBuy[4] && data._mapsOpen[4])
+            else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_4) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_4) == Constants.DATA.TRUE)
             {
                 playButtons[index].GetComponent<Image>().sprite = lockSprite;
-                buttonTexts[index].text = "THE LEVEL IS NOT PURCHASED";
+                buttonTexts[index].text = "УРОВЕНЬ НЕ ПРИОБРЕТЁН";
             }
             else
             {
                 playButtons[index].GetComponent<Image>().sprite = lockSprite;
-                buttonTexts[index].text = "UNLOCK ON LVL 40";
+                buttonTexts[index].text = "ОТКРОЕТСЯ НА 40 УРОВНЕ";
             }
         }
     }

@@ -24,9 +24,6 @@ public class AirplanesShopManager : MonoBehaviour
     [SerializeField]
     private Text coinText;
 
-    [SerializeField]
-    private StartData data;
-
     private void OnEnable()
     {
         buyButtonGameObject.SetActive(false);
@@ -106,19 +103,106 @@ public class AirplanesShopManager : MonoBehaviour
             {
                 if (buy)
                 {
-                    if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
+                    if (index == 0)
                     {
-                        PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - cost);
-                        UpdateCoinText();
+                        if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
+                        {
+                            PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - cost);
+                            UpdateCoinText();
 
-                        data._airplanesBuy[index] = true;
-                        data.Save();
-                        PlayerPrefs.SetInt(Constants.DATA.SELECTED_AIRPLANES, index);
-                        SetBuyButton(index, cost, level);
+                            PlayerPrefs.SetString(Constants.DATA.AIRPLANE_BUY_0, Constants.DATA.TRUE);
+                            PlayerPrefs.SetInt(Constants.DATA.SELECTED_AIRPLANES, index);
+                            SetBuyButton(index, cost, level);
+                        }
+                        else
+                        {
+                            Debug.Log("Недостаточно средств");
+                        }
                     }
-                    else
+
+                    if (index == 1)
                     {
-                        Debug.Log("Недостаточно средств");
+                        if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
+                        {
+                            PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - cost);
+                            UpdateCoinText();
+
+                            PlayerPrefs.SetString(Constants.DATA.AIRPLANE_BUY_1, Constants.DATA.TRUE);
+                            PlayerPrefs.SetInt(Constants.DATA.SELECTED_AIRPLANES, index);
+                            SetBuyButton(index, cost, level);
+                        }
+                        else
+                        {
+                            Debug.Log("Недостаточно средств");
+                        }
+                    }
+
+                    if (index == 2)
+                    {
+                        if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
+                        {
+                            PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - cost);
+                            UpdateCoinText();
+
+                            PlayerPrefs.SetString(Constants.DATA.AIRPLANE_BUY_2, Constants.DATA.TRUE);
+                            PlayerPrefs.SetInt(Constants.DATA.SELECTED_AIRPLANES, index);
+                            SetBuyButton(index, cost, level);
+                        }
+                        else
+                        {
+                            Debug.Log("Недостаточно средств");
+                        }
+                    }
+
+                    if (index == 3)
+                    {
+                        if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
+                        {
+                            PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - cost);
+                            UpdateCoinText();
+
+                            PlayerPrefs.SetString(Constants.DATA.AIRPLANE_BUY_3, Constants.DATA.TRUE);
+                            PlayerPrefs.SetInt(Constants.DATA.SELECTED_AIRPLANES, index);
+                            SetBuyButton(index, cost, level);
+                        }
+                        else
+                        {
+                            Debug.Log("Недостаточно средств");
+                        }
+                    }
+
+                    if (index == 4)
+                    {
+                        if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
+                        {
+                            PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - cost);
+                            UpdateCoinText();
+
+                            PlayerPrefs.SetString(Constants.DATA.AIRPLANE_BUY_4, Constants.DATA.TRUE);
+                            PlayerPrefs.SetInt(Constants.DATA.SELECTED_AIRPLANES, index);
+                            SetBuyButton(index, cost, level);
+                        }
+                        else
+                        {
+                            Debug.Log("Недостаточно средств");
+                        }
+                    }
+
+                    if (index == 5)
+                    {
+                        if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
+                        {
+                            PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - cost);
+                            UpdateCoinText();
+
+                            PlayerPrefs.SetString(Constants.DATA.AIRPLANE_BUY_5, Constants.DATA.TRUE);
+                            PlayerPrefs.SetInt(Constants.DATA.SELECTED_AIRPLANES, index);
+                            SetBuyButton(index, cost, level);
+                        }
+                        else
+                        {
+                            Debug.Log("Недостаточно средств");
+                        }
                     }
                 }
 
@@ -133,46 +217,314 @@ public class AirplanesShopManager : MonoBehaviour
 
     private void SetBuyButton(int index, int cost, int level)
     {
-        if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index && data._airplanesBuy[index] && data._airplanesOpen[index])
+        if (index == 0)
         {
-            buyButton.GetComponent<Image>().sprite = lockSprite;
-            buyButtonText.text = "SELECTED";
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_0) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_0) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ВЫБРАНО";
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_0) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_0) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                BuyButtonClickAction(true, false, index, cost, level);
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_0) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_0) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "ВЫБРАТЬ";
+                BuyButtonClickAction(false, true, index, cost, level);
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_0) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_0) == Constants.DATA.FALSE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+            }
+
+            else
+            {
+                Debug.Log("Bug");
+            }
         }
-        else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index && !data._airplanesBuy[index] && data._airplanesOpen[index])
+
+        if (index == 1)
         {
-            buyButton.GetComponent<Image>().sprite = unlockSprite;
-            buyButtonText.text = "BUY " + cost + " COINS";
-            BuyButtonClickAction(true, false, index, cost, level);
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_1) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_1) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ВЫБРАНО";
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_1) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_1) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                BuyButtonClickAction(true, false, index, cost, level);
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_1) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_1) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "ВЫБРАТЬ";
+                BuyButtonClickAction(false, true, index, cost, level);
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_1) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_1) == Constants.DATA.FALSE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+            }
+
+            else
+            {
+                Debug.Log("Bug");
+            }
         }
-        else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index && data._airplanesBuy[index] && data._airplanesOpen[index])
+
+        if (index == 2)
         {
-            buyButton.GetComponent<Image>().sprite = unlockSprite;
-            buyButtonText.text = "SELECT";
-            BuyButtonClickAction(false, true, index, cost, level);
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_2) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_2) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ВЫБРАНО";
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_2) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_2) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                BuyButtonClickAction(true, false, index, cost, level);
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_2) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_2) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "ВЫБРАТЬ";
+                BuyButtonClickAction(false, true, index, cost, level);
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_2) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_2) == Constants.DATA.FALSE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+            }
+
+            else
+            {
+                Debug.Log("Bug");
+            }
         }
-        else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index && !data._airplanesBuy[index] && !data._airplanesOpen[index])
+
+        if (index == 3)
         {
-            buyButton.GetComponent<Image>().sprite = lockSprite;
-            buyButtonText.text = "UNLOCK ON LVL " + level;
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_3) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_3) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ВЫБРАНО";
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_3) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_3) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                BuyButtonClickAction(true, false, index, cost, level);
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_3) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_3) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "ВЫБРАТЬ";
+                BuyButtonClickAction(false, true, index, cost, level);
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_3) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_3) == Constants.DATA.FALSE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+            }
+
+            else
+            {
+                Debug.Log("Bug");
+            }
         }
-        else
+
+        if (index == 4)
         {
-            Debug.Log("Bug");
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_4) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_4) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ВЫБРАНО";
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_4) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_4) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                BuyButtonClickAction(true, false, index, cost, level);
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_4) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_4) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "ВЫБРАТЬ";
+                BuyButtonClickAction(false, true, index, cost, level);
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_4) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_4) == Constants.DATA.FALSE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+            }
+
+            else
+            {
+                Debug.Log("Bug");
+            }
         }
+
+        if (index == 5)
+        {
+            if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) == index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_5) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_5) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ВЫБРАНО";
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_5) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_5) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                BuyButtonClickAction(true, false, index, cost, level);
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_5) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_5) == Constants.DATA.TRUE)
+            {
+                buyButton.GetComponent<Image>().sprite = unlockSprite;
+                buyButtonText.text = "ВЫБРАТЬ";
+                BuyButtonClickAction(false, true, index, cost, level);
+            }
+
+            else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_BUY_5) == Constants.DATA.FALSE
+                && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_5) == Constants.DATA.FALSE)
+            {
+                buyButton.GetComponent<Image>().sprite = lockSprite;
+                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+            }
+
+            else
+            {
+                Debug.Log("Bug");
+            }
+        }
+
     }
 
     private void SetSprites()
     {
-        for (int i = 0; i < lockSprites.Length; i++)
+        if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_0) == Constants.DATA.TRUE)
         {
-            if (data._airplanesOpen[i])
-            {
-                airplanesButtons[i].GetComponent<Image>().sprite = unlockSprites[i];
-            }
-            else
-            {
-                airplanesButtons[i].GetComponent<Image>().sprite = lockSprites[i];
-            }
+            airplanesButtons[0].GetComponent<Image>().sprite = unlockSprites[0];
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_0) == Constants.DATA.FALSE)
+        {
+            airplanesButtons[0].GetComponent<Image>().sprite = lockSprites[0];
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_1) == Constants.DATA.TRUE)
+        {
+            airplanesButtons[1].GetComponent<Image>().sprite = unlockSprites[1];
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_1) == Constants.DATA.FALSE)
+        {
+            airplanesButtons[1].GetComponent<Image>().sprite = lockSprites[1];
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_2) == Constants.DATA.TRUE)
+        {
+            airplanesButtons[2].GetComponent<Image>().sprite = unlockSprites[2];
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_2) == Constants.DATA.FALSE)
+        {
+            airplanesButtons[2].GetComponent<Image>().sprite = lockSprites[2];
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_3) == Constants.DATA.TRUE)
+        {
+            airplanesButtons[3].GetComponent<Image>().sprite = unlockSprites[3];
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_3) == Constants.DATA.FALSE)
+        {
+            airplanesButtons[3].GetComponent<Image>().sprite = lockSprites[3];
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_4) == Constants.DATA.TRUE)
+        {
+            airplanesButtons[4].GetComponent<Image>().sprite = unlockSprites[4];
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_4) == Constants.DATA.FALSE)
+        {
+            airplanesButtons[4].GetComponent<Image>().sprite = lockSprites[4];
+        }
+
+        if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_5) == Constants.DATA.TRUE)
+        {
+            airplanesButtons[5].GetComponent<Image>().sprite = unlockSprites[5];
+        }
+        else if (PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_5) == Constants.DATA.FALSE)
+        {
+            airplanesButtons[5].GetComponent<Image>().sprite = lockSprites[5];
         }
     }
 

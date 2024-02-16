@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +11,9 @@ public class DeathmatchGamemanager : MonoBehaviour
     private DeathmatchLevelUI levelUI;
     
     private Player player;
+
+    [SerializeField]
+    private YG.YandexGame sdk;
 
     private void Start()
     {
@@ -76,7 +79,7 @@ public class DeathmatchGamemanager : MonoBehaviour
     {
         player.lifes -= 1;
         levelUI.SetHeartAmount();
-        
+
         if (player.lifes <= 0)
         {
             levelUI.LoseGame();
@@ -97,7 +100,7 @@ public class DeathmatchGamemanager : MonoBehaviour
     public void ExitGame()
     {
         SaveGameProgress();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void RestartGame()
@@ -107,34 +110,35 @@ public class DeathmatchGamemanager : MonoBehaviour
             
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 0)
         {
-            SceneManager.LoadScene(3); //Winter deathmatch 
+            SceneManager.LoadScene(1); //Winter deathmatch 
         }
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 1)
         {
-            SceneManager.LoadScene(4); //Volcano deathmatch
+            SceneManager.LoadScene(2); //Volcano deathmatch
         }
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 2)
         {
-            SceneManager.LoadScene(5); //Forest deathmatch
+            SceneManager.LoadScene(3); //Forest deathmatch
         }
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 3)
         {
-            SceneManager.LoadScene(6); //City deathmatch
+            SceneManager.LoadScene(4); //City deathmatch
         }
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) == 4)
         {
-            SceneManager.LoadScene(7); //Space deathmatch
+            SceneManager.LoadScene(5); //Space deathmatch
         }
     }
 
     public void ContinueGame()
     {
-        if (PlayerPrefs.GetInt(Constants.DATA.COIN) - 2000 >= 0)
-        {
-            PlayerPrefs.SetInt(Constants.DATA.COIN, PlayerPrefs.GetInt(Constants.DATA.COIN) - 2000);
-            player.RefilLifes();
-            levelUI.SetHeartAmount();
-            levelUI.ContinueGame();
-        }
+        sdk._RewardedShow(1);
+    }
+
+    public void ContinueGameCul()
+    {
+        levelUI.ContinueGame();
+        player.RefilLifes();
+        levelUI.SetHeartAmount();
     }
 }

@@ -94,12 +94,12 @@ public class HangarManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
         {
-            gamemodeText.text = "Deathmatch";
+            gamemodeText.text = "С ВРАГАМИ";
         }
 
         if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 1)
         {
-            gamemodeText.text = "Xp Gaining";
+            gamemodeText.text = "БЕЗ ВРАГОВ";
         }
     }
 }

@@ -22,8 +22,6 @@ public class MainPanelManager : MonoBehaviour
     [SerializeField]
     private GameObject gamemodePanel;
 
-    [SerializeField]
-    private StartData data;
     [SerializeField] 
     private LevelUp levelManager;
 
@@ -63,14 +61,15 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[0].onClick.RemoveAllListeners();
             levelButtons[0].onClick.AddListener(() =>
             {
-                if (data._mapsBuy[0] && data._mapsOpen[0])
+                if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_0) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_0) == Constants.DATA.TRUE)
                 {
                     gamemodePanel.SetActive(true);
                     PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 0);
                 }
                 else
                 {
-                    Debug.Log("Volcano level is locked");
+                    Debug.Log("Level locked");
                 }
             });
         }
@@ -80,14 +79,15 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[1].onClick.RemoveAllListeners();
             levelButtons[1].onClick.AddListener(() =>
             {
-                if (data._mapsBuy[1] && data._mapsOpen[1])
+                if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_1) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_1) == Constants.DATA.TRUE)
                 {
                     gamemodePanel.SetActive(true);
                     PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 1);
                 }
                 else
                 {
-                    Debug.Log("Volcano level is locked");
+                    Debug.Log("Level locked");
                 }
             });
         }
@@ -97,14 +97,15 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[2].onClick.RemoveAllListeners();
             levelButtons[2].onClick.AddListener(() =>
             {
-                if (data._mapsBuy[2] && data._mapsOpen[2])
+                if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_2) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_2) == Constants.DATA.TRUE)
                 {
                     gamemodePanel.SetActive(true);
                     PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 2);
                 }
                 else
                 {
-                    Debug.Log("Forest level is locked");
+                    Debug.Log("Level locked");
                 }
             });
         }
@@ -114,14 +115,15 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[3].onClick.RemoveAllListeners();
             levelButtons[3].onClick.AddListener(() =>
             {
-                if (data._mapsBuy[3] && data._mapsOpen[3])
+                if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_3) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_3) == Constants.DATA.TRUE)
                 {
                     gamemodePanel.SetActive(true);
                     PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 3);
                 }
                 else
                 {
-                    Debug.Log("City level is locked");
+                    Debug.Log("Level locked");
                 }
             });
         }
@@ -131,14 +133,15 @@ public class MainPanelManager : MonoBehaviour
             levelButtons[4].onClick.RemoveAllListeners();
             levelButtons[4].onClick.AddListener(() =>
             {
-                if (data._mapsBuy[4] && data._mapsOpen[4])
+                if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_4) == Constants.DATA.TRUE
+                && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_4) == Constants.DATA.TRUE)
                 {
                     gamemodePanel.SetActive(true);
                     PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, 4);
                 }
                 else
                 {
-                    Debug.Log("Space level is locked");
+                    Debug.Log("Level locked");
                 }
             });
         }
