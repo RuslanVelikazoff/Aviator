@@ -1,2 +1,2 @@
-Build path: /Users/user/Desktop/BuildProject/Test2
-Build number: 2
+Build path: /Users/user/Desktop/BuildProject/Test4
+Build number: 4

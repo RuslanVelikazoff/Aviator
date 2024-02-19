@@ -16,11 +16,16 @@ public class MainPanelManager : MonoBehaviour
     private Button shopButton;
 
     [SerializeField]
+    private Button donateButton;
+
+    [SerializeField]
     private GameObject mainPanel;
     [SerializeField]
     private GameObject shopPanel;
     [SerializeField]
     private GameObject gamemodePanel;
+    [SerializeField]
+    private GameObject donatePanel;
 
     [SerializeField] 
     private LevelUp levelManager;
@@ -155,6 +160,16 @@ public class MainPanelManager : MonoBehaviour
             {
                 mainPanel.SetActive(false);
                 shopPanel.SetActive(true);
+            });
+        }
+
+        if (donateButton != null)
+        {
+            donateButton.onClick.RemoveAllListeners();
+            donateButton.onClick.AddListener(() =>
+            {
+                mainPanel.SetActive(false);
+                donatePanel.SetActive(true);
             });
         }
     }

@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         {
             Fly();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 0)
         {
             Fire();
         }
@@ -60,6 +60,12 @@ public class Player : MonoBehaviour
 
     public void RefilLifes()
     {
+        //TODO: исправить баг в xp
+        if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_GAMEMODE) == 1)
+        {
+            this.gameObject.transform.position = new Vector3(-1.7f, 0f, 0f);
+        }
+
         lifes = lifesAmount;
     }
 
