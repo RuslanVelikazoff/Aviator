@@ -141,4 +141,9 @@ public class XPLevelGamemanager : MonoBehaviour
         player.RefilLifes();
         levelUI.SetHeartAmount();
     }
+
+    public void ContinueGameCul2()
+    {
+        levelUI.ContinueGame();
+    }
 }

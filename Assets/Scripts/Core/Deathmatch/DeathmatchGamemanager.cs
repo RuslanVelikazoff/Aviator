@@ -141,4 +141,9 @@ public class DeathmatchGamemanager : MonoBehaviour
         player.RefilLifes();
         levelUI.SetHeartAmount();
     }
+
+    public void ContimueGameCul2()
+    {
+        levelUI.ContinueGame();
+    }
 }

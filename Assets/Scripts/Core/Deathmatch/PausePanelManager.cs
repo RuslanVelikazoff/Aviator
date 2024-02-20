@@ -35,7 +35,7 @@ public class PausePanelManager : MonoBehaviour
             exitButton.onClick.RemoveAllListeners();
             exitButton.onClick.AddListener(() =>
             {
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(0);
             });
         }
     }
