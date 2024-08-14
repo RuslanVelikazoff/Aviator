@@ -13,11 +13,6 @@ public class DeathmatchLevelUI : MonoBehaviour
     [SerializeField]
     private GameObject losePanel;
 
-    [SerializeField]
-    private GameObject continuePanel;
-    [SerializeField]
-    private Button continueButton;
-
     [SerializeField] 
     private Button fireButton;
 
@@ -63,16 +58,6 @@ public class DeathmatchLevelUI : MonoBehaviour
                 player.Fire();
             });
         }
-
-        if (continueButton != null)
-        {
-            continueButton.onClick.RemoveAllListeners();
-            continueButton.onClick.AddListener(() =>
-            {
-                continuePanel.SetActive(false);
-                Time.timeScale = 1;
-            });
-        }
     }
 
     public void PlayerStartFly()
@@ -94,12 +79,6 @@ public class DeathmatchLevelUI : MonoBehaviour
     {
         Time.timeScale = 0;
         losePanel.SetActive(true);
-    }
-
-    public void ContinueGame()
-    {
-        losePanel.SetActive(false);
-        continuePanel.SetActive(true);
     }
 
     public void SetHeartAmount()

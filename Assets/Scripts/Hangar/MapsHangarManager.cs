@@ -134,13 +134,13 @@ public class MapsHangarManager : MonoBehaviour
         {
             PlayerPrefs.SetInt(Constants.DATA.SELECTED_LEVEL, index);
             playButton.GetComponent<Image>().sprite = playSprite;
-            playButtonText.text = "ИГРАТЬ";
+            playButtonText.text = "Play";
             PlayButtonClickAction(index);
         }
         else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_LEVEL) != index)
         {
             playButton.GetComponent<Image>().sprite = unlockSprite;
-            playButtonText.text = "ВЫБРАТЬ";
+            playButtonText.text = "Select";
             PlayButtonClickAction(index);
         }
     }

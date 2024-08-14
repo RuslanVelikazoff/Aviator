@@ -12,11 +12,6 @@ public class XPLevelUI : MonoBehaviour
     private GameObject losePanel;
 
     [SerializeField]
-    private GameObject continuePanel;
-    [SerializeField]
-    private Button continueButton;
-
-    [SerializeField]
     private GameObject[] hearts;
 
     [SerializeField]
@@ -49,16 +44,6 @@ public class XPLevelUI : MonoBehaviour
                 PauseGame();
             });
         }
-
-        if (continueButton != null)
-        {
-            continueButton.onClick.RemoveAllListeners();
-            continueButton.onClick.AddListener(() =>
-            {
-                continuePanel.SetActive(false);
-                Time.timeScale = 1;
-            });
-        }
     }
 
     public void PlayerStartFly()
@@ -74,12 +59,6 @@ public class XPLevelUI : MonoBehaviour
     {
         Time.timeScale = 0;
         pausePanel.SetActive(true);
-    }
-
-    public void ContinueGame()
-    {
-        losePanel.SetActive(false);
-        continuePanel.SetActive(true);
     }
 
     public void LoseGame()
