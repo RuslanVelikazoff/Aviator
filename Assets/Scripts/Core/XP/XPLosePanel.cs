@@ -4,8 +4,6 @@ using UnityEngine.UI;
 public class XPLosePanel : MonoBehaviour
 {
     [SerializeField]
-    private Button continueButton;
-    [SerializeField]
     private Button exitButton;
     [SerializeField]
     private Button restartButton;
@@ -28,16 +26,6 @@ public class XPLosePanel : MonoBehaviour
 
     private void ButtonClickAction()
     {
-        if (continueButton != null)
-        {
-            continueButton.onClick.RemoveAllListeners();
-            continueButton.onClick.AddListener(() =>
-            {
-                gamemanager.ContinueGame();
-                Debug.Log("Continue");
-            });
-        }
-
         if (exitButton != null)
         {
             exitButton.onClick.RemoveAllListeners();

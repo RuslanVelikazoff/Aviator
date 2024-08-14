@@ -12,9 +12,6 @@ public class XPLevelGamemanager : MonoBehaviour
 
     private Player player;
 
-    [SerializeField]
-    private YG.YandexGame sdk;
-
     private void Start()
     {
         Time.timeScale = 1;
@@ -128,22 +125,5 @@ public class XPLevelGamemanager : MonoBehaviour
         {
             SceneManager.LoadScene(10); //Space xp
         }
-    }
-
-    public void ContinueGame()
-    {
-        sdk._RewardedShow(1);
-    }
-
-    public void ContinueGameCul()
-    {
-        levelUI.ContinueGame();
-        player.RefilLifes();
-        levelUI.SetHeartAmount();
-    }
-
-    public void ContinueGameCul2()
-    {
-        levelUI.ContinueGame();
     }
 }

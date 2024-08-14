@@ -12,9 +12,6 @@ public class DeathmatchGamemanager : MonoBehaviour
     
     private Player player;
 
-    [SerializeField]
-    private YG.YandexGame sdk;
-
     private void Start()
     {
         Time.timeScale = 1;
@@ -128,22 +125,5 @@ public class DeathmatchGamemanager : MonoBehaviour
         {
             SceneManager.LoadScene(5); //Space deathmatch
         }
-    }
-
-    public void ContinueGame()
-    {
-        sdk._RewardedShow(1);
-    }
-
-    public void ContinueGameCul()
-    {
-        levelUI.ContinueGame();
-        player.RefilLifes();
-        levelUI.SetHeartAmount();
-    }
-
-    public void ContimueGameCul2()
-    {
-        levelUI.ContinueGame();
     }
 }
