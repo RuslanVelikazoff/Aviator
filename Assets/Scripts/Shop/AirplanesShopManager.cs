@@ -224,7 +224,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_0) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ВЫБРАНО";
+                buyButtonText.text = "Selected";
             }
 
             else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
@@ -232,7 +232,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_0) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                buyButtonText.text = "Buy for " + cost + " coins";
                 BuyButtonClickAction(true, false, index, cost, level);
             }
 
@@ -241,7 +241,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_0) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "ВЫБРАТЬ";
+                buyButtonText.text = "Select";
                 BuyButtonClickAction(false, true, index, cost, level);
             }
 
@@ -250,7 +250,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_0) == Constants.DATA.FALSE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+                buyButtonText.text = "Will open at the " + level + " level";
             }
 
             else
@@ -266,7 +266,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_1) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ВЫБРАНО";
+                buyButtonText.text = "Selected";
             }
 
             else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
@@ -274,7 +274,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_1) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                buyButtonText.text = "Buy for " + cost + " coins";
                 BuyButtonClickAction(true, false, index, cost, level);
             }
 
@@ -283,7 +283,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_1) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "ВЫБРАТЬ";
+                buyButtonText.text = "Select";
                 BuyButtonClickAction(false, true, index, cost, level);
             }
 
@@ -292,7 +292,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_1) == Constants.DATA.FALSE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+                buyButtonText.text = "Will open at the " + level + " level";
             }
 
             else
@@ -308,7 +308,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_2) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ВЫБРАНО";
+                buyButtonText.text = "Selected";
             }
 
             else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
@@ -316,7 +316,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_2) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                buyButtonText.text = "buy for " + cost + " coins";
                 BuyButtonClickAction(true, false, index, cost, level);
             }
 
@@ -325,7 +325,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_2) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "ВЫБРАТЬ";
+                buyButtonText.text = "Select";
                 BuyButtonClickAction(false, true, index, cost, level);
             }
 
@@ -334,7 +334,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_2) == Constants.DATA.FALSE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+                buyButtonText.text = "Will open at the " + level + " level";
             }
 
             else
@@ -350,7 +350,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_3) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ВЫБРАНО";
+                buyButtonText.text = "Selected";
             }
 
             else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
@@ -358,7 +358,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_3) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                buyButtonText.text = "Buy for " + cost + " coins";
                 BuyButtonClickAction(true, false, index, cost, level);
             }
 
@@ -367,7 +367,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_3) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "ВЫБРАТЬ";
+                buyButtonText.text = "Select";
                 BuyButtonClickAction(false, true, index, cost, level);
             }
 
@@ -376,7 +376,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_3) == Constants.DATA.FALSE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+                buyButtonText.text = "Will open at the " + level + " level";
             }
 
             else
@@ -392,7 +392,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_4) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ВЫБРАНО";
+                buyButtonText.text = "Selected";
             }
 
             else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
@@ -400,7 +400,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_4) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                buyButtonText.text = "Buy for " + cost + " coins";
                 BuyButtonClickAction(true, false, index, cost, level);
             }
 
@@ -409,7 +409,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_4) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "ВЫБРАТЬ";
+                buyButtonText.text = "Select";
                 BuyButtonClickAction(false, true, index, cost, level);
             }
 
@@ -418,7 +418,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_4) == Constants.DATA.FALSE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+                buyButtonText.text = "Will open at the " + level + " level";
             }
 
             else
@@ -434,7 +434,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_5) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ВЫБРАНО";
+                buyButtonText.text = "Selected";
             }
 
             else if (PlayerPrefs.GetInt(Constants.DATA.SELECTED_AIRPLANES) != index
@@ -442,7 +442,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_5) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                buyButtonText.text = "Buy for " + cost + " coins";
                 BuyButtonClickAction(true, false, index, cost, level);
             }
 
@@ -451,7 +451,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_5) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "ВЫБРАТЬ";
+                buyButtonText.text = "Select";
                 BuyButtonClickAction(false, true, index, cost, level);
             }
 
@@ -460,7 +460,7 @@ public class AirplanesShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.AIRPLANE_OPEN_5) == Constants.DATA.FALSE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+                buyButtonText.text = "Will open at the " + level + " level";
             }
 
             else

@@ -91,7 +91,6 @@ public class MapsShopManager : MonoBehaviour
             buyButton.onClick.RemoveAllListeners();
             buyButton.onClick.AddListener(() =>
             {
-                //Добавить проверку индекса
                 if (index == 0)
                 {
                     if (PlayerPrefs.GetInt(Constants.DATA.COIN) - cost >= 0)
@@ -188,14 +187,14 @@ public class MapsShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_0) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                buyButtonText.text = "Buy for " + cost + " coins";
                 BuyButtonClickAction(index, cost, level);
             }
             else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_0) == Constants.DATA.FALSE
                 && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_0) == Constants.DATA.FALSE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+                buyButtonText.text = "Will open at the " + level + " level";
             }
         }
 
@@ -210,14 +209,14 @@ public class MapsShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_1) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                buyButtonText.text = "Buy for " + cost + " coins";
                 BuyButtonClickAction(index, cost, level);
             }
             else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_1) == Constants.DATA.FALSE
                 && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_1) == Constants.DATA.FALSE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+                buyButtonText.text = "Will open at the " + level + " level";
             }
         }
 
@@ -232,14 +231,14 @@ public class MapsShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_2) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                buyButtonText.text = "Buy for " + cost + " coins";
                 BuyButtonClickAction(index, cost, level);
             }
             else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_2) == Constants.DATA.FALSE
                 && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_2) == Constants.DATA.FALSE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+                buyButtonText.text = "Will open at the " + level + " level";
             }
         }
 
@@ -254,14 +253,14 @@ public class MapsShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_3) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                buyButtonText.text = "Buy for " + cost + " coins";
                 BuyButtonClickAction(index, cost, level);
             }
             else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_3) == Constants.DATA.FALSE
                 && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_3) == Constants.DATA.FALSE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+                buyButtonText.text = "Will open at the " + level + " level";
             }
         }
 
@@ -276,14 +275,14 @@ public class MapsShopManager : MonoBehaviour
                 && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_4) == Constants.DATA.TRUE)
             {
                 buyButton.GetComponent<Image>().sprite = unlockSprite;
-                buyButtonText.text = "КУПИТЬ ЗА " + cost + " МОНЕТОК";
+                buyButtonText.text = "Buy for " + cost + " coins";
                 BuyButtonClickAction(index, cost, level);
             }
             else if (PlayerPrefs.GetString(Constants.DATA.MAP_BUY_4) == Constants.DATA.FALSE
                 && PlayerPrefs.GetString(Constants.DATA.MAP_OPEN_4) == Constants.DATA.FALSE)
             {
                 buyButton.GetComponent<Image>().sprite = lockSprite;
-                buyButtonText.text = "ОТКРОЕТСЯ НА " + level + " УРОВНЕ";
+                buyButtonText.text = "Will open at the " + level + " level";
             }
         }
     }

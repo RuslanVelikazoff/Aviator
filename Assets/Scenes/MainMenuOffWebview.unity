@@ -222,19 +222,19 @@ MonoBehaviour:
   - {fileID: 1801389792}
   - {fileID: 1118217172}
   unlockSprites:
-  - {fileID: 21300000, guid: 3f6c22b3c19874b918bfa143fa4addeb, type: 3}
-  - {fileID: 21300000, guid: 3806f63c202684bf892e471dace75396, type: 3}
-  - {fileID: 21300000, guid: 8e15eb304c1654df7a2da89fb732db73, type: 3}
-  - {fileID: 21300000, guid: 64a657ab960aa4e02bf90332fdeb5078, type: 3}
-  - {fileID: 21300000, guid: 960f49d83fa5f4c60a9aa8c5eb8539ba, type: 3}
-  - {fileID: 21300000, guid: 92957037ba59f4151914b7dc31003a6f, type: 3}
+  - {fileID: 21300000, guid: 1906f2df726d7445a976d8bad2ee01b4, type: 3}
+  - {fileID: 21300000, guid: fcfa21a026cbc4ee6ac7dd8a3f36561b, type: 3}
+  - {fileID: 21300000, guid: dea7e58d598314b80962a702e40485e5, type: 3}
+  - {fileID: 21300000, guid: 78ddb42324933478cabf782e7355e0f1, type: 3}
+  - {fileID: 21300000, guid: 988387b2e9f5f4a5fbffa577c30d250b, type: 3}
+  - {fileID: 21300000, guid: 019ea04c5cf884a2a9627393129f61c2, type: 3}
   lockSprites:
-  - {fileID: 21300000, guid: 3f6c22b3c19874b918bfa143fa4addeb, type: 3}
-  - {fileID: 21300000, guid: ea82976f88c694e5a8eac7addd1ca125, type: 3}
-  - {fileID: 21300000, guid: 2b454b152996f40b8bdc6c0a2cd60911, type: 3}
-  - {fileID: 21300000, guid: 24c50728cb29c4991bb8d154982467e5, type: 3}
-  - {fileID: 21300000, guid: b64ab88b627f8480e8d49212adf5bb79, type: 3}
-  - {fileID: 21300000, guid: 9e61653dddc9749e6991277f733073f3, type: 3}
+  - {fileID: 21300000, guid: 4347118573e934b04bf19299709384e6, type: 3}
+  - {fileID: 21300000, guid: 4347118573e934b04bf19299709384e6, type: 3}
+  - {fileID: 21300000, guid: 40b6ee83026eb40f7b46fb05e425f31a, type: 3}
+  - {fileID: 21300000, guid: 24cfb690ce8714d42a4358e006c7cc5c, type: 3}
+  - {fileID: 21300000, guid: f07ae7ccaa37b44f6ac585235dd33d34, type: 3}
+  - {fileID: 21300000, guid: 8938352e9a7e543ffbebdca8a1feb3e5, type: 3}
   buyButton: {fileID: 728648896}
   buyButtonGameObject: {fileID: 728648894}
   unlockSprite: {fileID: 21300000, guid: 1aaf01485cc064c76bc03902b288d399, type: 3}
@@ -392,7 +392,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C 20"
+  m_Text: Level 20
 --- !u!222 &21340925
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ac9ebfc17a7314555a1897ae95947fbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8aeb3f3023819497283b2263b2b58ed9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1337,7 +1337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eaa8b025149f3420b96b2768dbdf0afe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e6ddbfc8786a34744a7b612f57d89ee5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2194,7 +2194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0421\u0410\u041C\u041E\u041B\u0401\u0422\u042B"
+  m_Text: Airplanes
 --- !u!222 &267855266
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4626,7 +4626,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3f6c22b3c19874b918bfa143fa4addeb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1906f2df726d7445a976d8bad2ee01b4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6441,7 +6441,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dd5c9b5880d734838916988c2aba002a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0900f72a429f4fab8892cfc6db1ebe0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6562,7 +6562,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea82976f88c694e5a8eac7addd1ca125, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4347118573e934b04bf19299709384e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6683,7 +6683,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 24c50728cb29c4991bb8d154982467e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24cfb690ce8714d42a4358e006c7cc5c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7443,7 +7443,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 82adfdb67e2b84c2bba0418a6d67c503, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 92731289a5c9b4020a7916b2c14d36ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7685,7 +7685,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2b454b152996f40b8bdc6c0a2cd60911, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40b6ee83026eb40f7b46fb05e425f31a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7806,7 +7806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9e61653dddc9749e6991277f733073f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8938352e9a7e543ffbebdca8a1feb3e5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8283,17 +8283,17 @@ MonoBehaviour:
   - {fileID: 887294395}
   - {fileID: 1067203594}
   unlockSprites:
-  - {fileID: 21300000, guid: eaa8b025149f3420b96b2768dbdf0afe, type: 3}
-  - {fileID: 21300000, guid: df85a7786bbc14083a633137075ddb22, type: 3}
-  - {fileID: 21300000, guid: 66625485ea67749d493e9daa1043966e, type: 3}
-  - {fileID: 21300000, guid: f805f13dd681d485981b6e35fa948743, type: 3}
-  - {fileID: 21300000, guid: 9ed1de4b46a8d41f9a66306aaa98d437, type: 3}
+  - {fileID: 21300000, guid: e6ddbfc8786a34744a7b612f57d89ee5, type: 3}
+  - {fileID: 21300000, guid: f39efd989280949c5bd3d859acd119ef, type: 3}
+  - {fileID: 21300000, guid: 7d4e73857a81c42eeb2ac56bb8eb0307, type: 3}
+  - {fileID: 21300000, guid: 8d5e7527609274189b9375383c678ad5, type: 3}
+  - {fileID: 21300000, guid: e17c8f82090d246388983c96bbce1f44, type: 3}
   lockSprites:
-  - {fileID: 21300000, guid: eaa8b025149f3420b96b2768dbdf0afe, type: 3}
-  - {fileID: 21300000, guid: ff3feb8adf9a849e1a1a171a679d7450, type: 3}
-  - {fileID: 21300000, guid: ac9ebfc17a7314555a1897ae95947fbb, type: 3}
-  - {fileID: 21300000, guid: dd5c9b5880d734838916988c2aba002a, type: 3}
-  - {fileID: 21300000, guid: 82adfdb67e2b84c2bba0418a6d67c503, type: 3}
+  - {fileID: 21300000, guid: 5db310e890532489eb7baa3bef1bb168, type: 3}
+  - {fileID: 21300000, guid: 5db310e890532489eb7baa3bef1bb168, type: 3}
+  - {fileID: 21300000, guid: 8aeb3f3023819497283b2263b2b58ed9, type: 3}
+  - {fileID: 21300000, guid: b0900f72a429f4fab8892cfc6db1ebe0, type: 3}
+  - {fileID: 21300000, guid: 92731289a5c9b4020a7916b2c14d36ba, type: 3}
   buyButton: {fileID: 1920244254}
   buyButtonGameObject: {fileID: 1920244252}
   unlockSprite: {fileID: 21300000, guid: 1aaf01485cc064c76bc03902b288d399, type: 3}
@@ -8767,7 +8767,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041A\u0410\u0420\u0422\u042B"
+  m_Text: Maps
 --- !u!222 &1408662447
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8961,7 +8961,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ff3feb8adf9a849e1a1a171a679d7450, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5db310e890532489eb7baa3bef1bb168, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11028,7 +11028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b64ab88b627f8480e8d49212adf5bb79, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f07ae7ccaa37b44f6ac585235dd33d34, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
